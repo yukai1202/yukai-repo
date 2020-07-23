@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+    
+    
+<link rel="stylesheet" href="/css/mdui.min.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            nginx常用配置 | Chris
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">Chris</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">Overview</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">About</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-2">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">Home</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">Tags</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">Categories</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">Archives</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">About</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">Night Mode</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-2">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/icons/avatar.gif"/>
+                
+            </div>
+            <div class="sidebar-author-name">Yu Kai</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:xxx@xxx.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a href="https://your.url" target="_blank" rel="noopener" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a href="https://your.url" target="_blank" rel="noopener" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a href="https://your.url" target="_blank" rel="noopener" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">Links</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a href="https://garybear.cn/hexo-theme-meadow/" target="_blank" rel="noopener" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2020/07/23/nginx/">nginx常用配置</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      Posted on:&nbsp;2020-07-23
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      Edited on:&nbsp;2020-07-24
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      In:&nbsp;<a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/">服务器配置</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        Views:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=nginx常用配置&url=https://yukai1202.github.io/2020/07/23/nginx/&pic=https://yukai1202.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=nginx常用配置&url=https://yukai1202.github.io/2020/07/23/nginx/&via=Yu Kai" target="_blank" class="mdui-ripple">Share to Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://yukai1202.github.io/2020/07/23/nginx/" target="_blank" class="mdui-ripple">Share to Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=https://yukai1202.github.io/2020/07/23/nginx/" target="_blank" class="mdui-ripple">Share to Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yukai1202.github.io/2020/07/23/nginx/&title=nginx常用配置" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Chris&title=nginx常用配置&summary=&pics=https://yukai1202.github.io/null&url=https://yukai1202.github.io/2020/07/23/nginx/" target="_blank" class="mdui-ripple">Share to QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=https://yukai1202.github.io/2020/07/23/nginx/&text=nginx常用配置" target="_blank" class="mdui-ripple">Share to Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h2 id="什么是-Nginx"><a href="#什么是-Nginx" class="headerlink" title="什么是 Nginx"></a>什么是 Nginx</h2><p>Nginx (engine x) 是一个高性能的 HTTP 和反向代理 web 服务器，同时也提供了 IMAP/POP3/SMTP 服务。</p>
+<blockquote>
+<p>优点</p>
+</blockquote>
+<ul>
+<li>跨平台，安装都很简单</li>
+<li>反向代理的配置</li>
+<li>配置负载均衡方便</li>
+<li>处理静态文件，索引文件以及自动索引;打开文件描述符缓冲。</li>
+<li>轻松配置 SSL， gzip，限流，授权</li>
+</ul>
+<blockquote>
+<p>Nginx 常用命令</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">./nginx -v 查看 nginx 版本</span><br><span class="line">./nginx -V 查看 nginx 的编译版本及配置的参数</span><br><span class="line">./nginx -t 主要验证 nginx.conf 配置文件是否有问题</span><br><span class="line">./nginx -c /usr/<span class="built_in">local</span>/nginx/conf/nginx.conf 根据配置文件的位置启动 nginx</span><br><span class="line">./nginx -s reload 重新加载配置文件</span><br><span class="line">./nginx -s stop 强制停止</span><br><span class="line">./nginx -s quit 优雅</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<blockquote>
+<p>Nginx 常用配置</p>
+</blockquote>
+<h5 id="一个站点配置多个域名"><a href="#一个站点配置多个域名" class="headerlink" title="一个站点配置多个域名"></a>一个站点配置多个域名</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  server_name aaa.cn bbb.cn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="一个服务配置多个站点"><a href="#一个服务配置多个站点" class="headerlink" title="一个服务配置多个站点"></a>一个服务配置多个站点</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  server_name aaa.cn;</span><br><span class="line">  location / &#123;</span><br><span class="line">    root /home/project/pa;</span><br><span class="line">    index index.html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  server_name bbb.cn ccc.cn;</span><br><span class="line">  location / &#123;</span><br><span class="line">    root /home/project/pb;</span><br><span class="line">    index index.html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  server_name ddd.cn;</span><br><span class="line">  location / &#123;</span><br><span class="line">    root /home/project/pc;</span><br><span class="line">    index index.html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="静态资源缓存"><a href="#静态资源缓存" class="headerlink" title="静态资源缓存"></a>静态资源缓存</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">location ~ .*\.(?:js|css|jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm)$ &#123;</span><br><span class="line">  expires 7d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(?:htm|html)$ &#123;</span><br><span class="line">  add_header Cache-Control <span class="string">"private, no-store, no-cache, must-revalidate, proxy-revalidate"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Gzip-配置"><a href="#Gzip-配置" class="headerlink" title="Gzip 配置"></a>Gzip 配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">  gzip on;</span><br><span class="line"></span><br><span class="line">  gzip_disable <span class="string">"MSIE [1-6]\.(?!.*SV1)"</span>;  <span class="comment">#禁用条件</span></span><br><span class="line"></span><br><span class="line">  gzip_min_length 10k; <span class="comment">#设置允许压缩的页面最小字节数; 这里表示如果文件小于10个字节，就不用压缩，因为没有意义，本来就很小.</span></span><br><span class="line"></span><br><span class="line">  gzip_comp_level 6; <span class="comment">#设置压缩比率，最小为1，处理速度快，传输速度慢；9为最大压缩比，处理速度慢，传输速度快; 这里表示压缩级别，可以是0到9中的任一个，级别越高，压缩就越小，节省了带宽资源，但同时也消耗CPU资源，所以一般折中为6</span></span><br><span class="line"></span><br><span class="line">  gzip_buffers 16 8k; <span class="comment">#设置压缩缓冲区大小，此处设置为16个8K内存作为压缩结果流缓存</span></span><br><span class="line"></span><br><span class="line">  gzip_http_version 1.1; <span class="comment">#压缩版本</span></span><br><span class="line"></span><br><span class="line">  gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript; <span class="comment">#制定压缩的类型,线上配置时尽可能配置多的压缩类型!</span></span><br><span class="line"></span><br><span class="line">  gzip_vary on; <span class="comment">#选择支持vary header；改选项可以让前端的缓存服务器缓存经过gzip压缩的页面; 这个可以不写，表示在传送数据时，给客户端说明我使用了gzip压缩</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="负载均衡-配置"><a href="#负载均衡-配置" class="headerlink" title="负载均衡 配置"></a>负载均衡 配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr &#123;</span><br><span class="line">  <span class="comment">#weigth参数表示权值，权值越高被分配到的几率越大</span></span><br><span class="line">  server 0.0.0.0:88 weight=5;</span><br><span class="line">  server 0.0.0.1:80 weight=1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="完整例子"><a href="#完整例子" class="headerlink" title="完整例子"></a>完整例子</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">  include       mime.types;</span><br><span class="line">  default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">  <span class="comment">#log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</span></span><br><span class="line">  <span class="comment">#                  '$status $body_bytes_sent "$http_referer" '</span></span><br><span class="line">  <span class="comment">#                  '"$http_user_agent" "$http_x_forwarded_for"';</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#access_log  logs/access.log  main;</span></span><br><span class="line"></span><br><span class="line">  sendfile        on;</span><br><span class="line">  <span class="comment">#tcp_nopush     on;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#keepalive_timeout  0;</span></span><br><span class="line">  keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">  <span class="comment">#gzip  on;</span></span><br><span class="line"></span><br><span class="line">  upstream mysvr &#123;</span><br><span class="line">    server 0.0.0.0:88 weight=5;</span><br><span class="line">    server 0.0.0.1:80 weight=1;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    gzip on;</span><br><span class="line">    gzip_buffers 16 8k;</span><br><span class="line">    gzip_types text/plain text/css application/json;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#默认简单配置</span></span><br><span class="line">    location / &#123;</span><br><span class="line">      root /var/html;</span><br><span class="line">      index index.html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#负载均衡</span></span><br><span class="line">    location /html &#123;</span><br><span class="line">      proxy_pass http://mysvr;</span><br><span class="line">      root /var/demo/html;</span><br><span class="line">      index index.html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#支持websocket</span></span><br><span class="line">    location /socket &#123;</span><br><span class="line">        root   html;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">        proxy_pass http://webscoket;</span><br><span class="line">        proxy_http_version 1.1;</span><br><span class="line">        proxy_connect_timeout 4s;                <span class="comment">#配置点1</span></span><br><span class="line">        proxy_read_timeout 60s;                  <span class="comment">#配置点2，如果没效，可以考虑这个时间配置长一点</span></span><br><span class="line">        proxy_send_timeout 12s;                  <span class="comment">#配置点3</span></span><br><span class="line">        proxy_set_header Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line">        proxy_set_header Connection <span class="string">"Upgrade"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    location ~ .*\.(?:js|css|jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm)$ &#123;</span><br><span class="line">      expires 7d;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location /rest &#123;</span><br><span class="line">      proxy_pass http://127.0.0.1</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Nginx-虚拟目录-alias-和-root-目录"><a href="#Nginx-虚拟目录-alias-和-root-目录" class="headerlink" title="Nginx 虚拟目录 alias 和 root 目录"></a>Nginx 虚拟目录 alias 和 root 目录</h5><ul>
+<li>alias 指定的目录是准确的，即 location 匹配访问的 path 目录下的文件直接是在 alias 目录下查找的；</li>
+<li>root 指定的目录是 location 匹配访问的 path 目录的上一级目录,这个 path 目录一定要是真实存在 root 指定目录下的；</li>
+<li>使用 alias 标签的目录块中不能使用 rewrite 的 break（具体原因不明）；另外，alias 指定的目录后面必须要加上”/“符号！！</li>
+<li>alias 虚拟目录配置中，location 匹配的 path 目录如果后面不带”/“，那么访问的 url 地址中这个 path 目录后面加不加”/“不影响访问，访问时它会自动加上”/“；<br>但是如果 location 匹配的 path 目录后面加上”/“，那么访问的 url 地址中这个 path 目录必须要加上”/“，访问时它不会自动加上”/“。如果不加上”/“，访问就会失败！</li>
+<li>root 目录配置中，location 匹配的 path 目录后面带不带”/“，都不会影响访问。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#例一</span></span><br><span class="line">location /demo/ &#123;</span><br><span class="line">  <span class="built_in">alias</span> /home/www/demo/; <span class="comment">#访问http://xxx/demo/a.html实际指定的是/home/www/demo/a.html。注意：alias指定的目录后面必须要加上"/"，即/home/www/huan/不能改成/home/www/huan</span></span><br><span class="line">&#125;</span><br><span class="line">location /demo/ &#123;</span><br><span class="line">  root /home/www/; <span class="comment">#效果和alias一样</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#例二</span></span><br><span class="line">location /web/ &#123;</span><br><span class="line">  <span class="built_in">alias</span> /home/www/html/; <span class="comment">#访问http://x/web/ 的时候就会去/home/www/html/下寻找访问资源。root没法改，需要做软连接</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  server_name www.xxx.com;</span><br><span class="line">  index index.html index.php index.htm;</span><br><span class="line">  <span class="comment">#access_log /usr/local/nginx/logs/image.log;</span></span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">    root /var/www/html;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  location /haha &#123;  <span class="comment">#匹配的path目录haha不需要真实存在alias指定的目录中</span></span><br><span class="line">    <span class="built_in">alias</span> /var/haha/html/; <span class="comment">#注意结尾/</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  location /wang &#123;    <span class="comment">#匹配的path目录wang一定要真实存在root指定的目录中（就/var/www/html下一定要有wang目录存在）</span></span><br><span class="line">    root /var/www/html;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Nginx-rewrite-配置"><a href="#Nginx-rewrite-配置" class="headerlink" title="Nginx rewrite 配置"></a>Nginx rewrite 配置</h5><p>rewrite 常用正则表达式</p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>. :匹配除换行符以外的任意字符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+<td>? :重复 0 次或 1 次</td>
+</tr>
+<tr>
+<td>3</td>
+<td>+ :重复 1 次或更多次</td>
+</tr>
+<tr>
+<td>4</td>
+<td>* :重复 0 次或更多次</td>
+</tr>
+<tr>
+<td>5</td>
+<td>\d :匹配数字</td>
+</tr>
+<tr>
+<td>6</td>
+<td>^ :匹配字符串的开始字符</td>
+</tr>
+<tr>
+<td>7</td>
+<td>$ :匹配字符串的结束字符</td>
+</tr>
+<tr>
+<td>8</td>
+<td>{n} :重复 n 次</td>
+</tr>
+<tr>
+<td>9</td>
+<td>{n,} :重复 n 次或更多次</td>
+</tr>
+<tr>
+<td>10</td>
+<td>[c] :匹配单个字符 c</td>
+</tr>
+<tr>
+<td>11</td>
+<td>[a-z] :匹配 a-z 小写字母的任意一个</td>
+</tr>
+</tbody></table>
+<p>在 rewrite 中，如果使用小括号()，那么在小括号之间匹配的内容，可以在后面通过$1来引用，$2 表示的是前面第二个()里的内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#例子</span></span><br><span class="line">location /download/ &#123;</span><br><span class="line">  rewrite ^(/download/.*)/media/(.*)..*$ <span class="variable">$1</span>/mp3/<span class="variable">$2</span>.mp3 <span class="built_in">break</span>;</span><br><span class="line">  rewrite ^(/download/.*)/audio/(.*)..*$ <span class="variable">$1</span>/mp3/<span class="variable">$2</span>.ra <span class="built_in">break</span>;</span><br><span class="line">  <span class="built_in">return</span> 403;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+##### 简单介绍下 Nginx 处理请求的几个主要阶段
+
+<p>nginx 处理请求一共分为 11 个阶段</p>
+<ul>
+<li><p>postread: #realip 模块，读取头部信息</p>
+</li>
+<li><p>server_rewrite: #一般没有第三方模块会处理这个阶段。</p>
+</li>
+<li><p>find_config: #做 location 的匹配，暂时没有模块会用到。</p>
+</li>
+<li><p>rewrite: #对 URL 做一些处理。</p>
+</li>
+<li><p>post_rewrite: #处于 REWRITE 之后，也是暂时没有模块会在这个阶段出现</p>
+</li>
+<li><p>preaccess: #access 之前的工作，例如并发连接和 QPS 需要进行限制, limit_conn 和 limit_req 就是在这里</p>
+</li>
+<li><p>access: #认证就在这里，auth_basic 用户名和密码认证, access 用户访问 ip, auth_request 第三方认证</p>
+</li>
+<li><p>postAccess: #access 之后做的一些事情</p>
+</li>
+<li><p>preContent: #try_files 模块就在这个阶段</p>
+</li>
+<li><p>content: #index, autoindex, concat 模块</p>
+</li>
+<li><p>log: #记录日志 access_log 模块</p>
+</li>
+</ul>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2020/07/23/docker/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>docker</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2020/07/23/https/">
+        <span>https介绍</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2020/07/23/nginx/" id="toc-header" class="mdui-ripple">Table of Contents</a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是-Nginx"><span class="toc-number">1.</span> <span class="toc-text">什么是 Nginx</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一个站点配置多个域名"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">一个站点配置多个域名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#一个服务配置多个站点"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">一个服务配置多个站点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#静态资源缓存"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">静态资源缓存</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Gzip-配置"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">Gzip 配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#负载均衡-配置"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">负载均衡 配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#完整例子"><span class="toc-number">1.0.0.6.</span> <span class="toc-text">完整例子</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Nginx-虚拟目录-alias-和-root-目录"><span class="toc-number">1.0.0.7.</span> <span class="toc-text">Nginx 虚拟目录 alias 和 root 目录</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Nginx-rewrite-配置"><span class="toc-number">1.0.0.8.</span> <span class="toc-text">Nginx rewrite 配置</span></a></li></ol></li></ol></li></ol></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
+        
+          <a href="#comment-tab1" class="mdui-ripple">livere</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id:  md5(location.pathname) ,
+    distractionFreeMode: 'true',
+  });
+  gitalk.render('gitalk-container');
+</script>
+        </div>
+      
+        <div id="comment-tab1" class="mdui-p-a-2">
+          <div id="lv-container" data-id="city" data-uid="">
+  <script type="text/javascript">
+    (function (d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+      if (typeof LivereTower === 'function') { return; }
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+      e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  </script>
+  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
+</div>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer
+  id="footer"
+  class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme"
+>
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+      <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank"
+        ></a
+      >
+      
+      <span>
+        &copy; 2015 - 2020 
+        <span
+          style="color: #d9333f;"
+          class="iconfont icon-heart"
+        ></span>
+         Yu Kai
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+      <div class="mdui-col-xs-6 mdui-text-right">
+        <span
+          >Powered by
+          <a href="https://hexo.io/" rel="noopener" target="_blank"
+            >Hexo</a
+          ></span
+        >
+      </div>
+      <div class="mdui-col-xs-6 mdui-text-left">
+        <span
+          >Theme:
+          <a
+            href="https://github.com/kb1000fx/Meadow"
+            rel="noopener"
+            target="_blank"
+            >Meadow</a
+          ></span
+        >
+      </div>
+      
+    </div>
+    <!-- <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>Total Visitors <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>Total Views <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div> -->
+  </div>
+</footer>
+
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+<script src="/js/mdui.min.js"></script>
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >
