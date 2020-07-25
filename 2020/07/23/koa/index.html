@@ -49,7 +49,7 @@
     
     <title>
         
-            koa | Chris
+            Koa2从入门到精通1 | Chris
         
     </title>
     
@@ -203,7 +203,7 @@
     
     
       <div class="post-header"> 
-  <a class="post-header-title" href="/2020/07/23/koa/">koa</a>
+  <a class="post-header-title" href="/2020/07/23/koa/">Koa2从入门到精通1</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
@@ -211,7 +211,7 @@
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2020-07-24
+      更新于:&nbsp;2020-07-25
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -231,10 +231,10 @@
       <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
       <ul class="mdui-menu" id="share_menu">
         <li class="mdui-menu-item">
-          <a href="http://service.weibo.com/share/share.php?appkey=&title=koa&url=https://yukai1202.github.io/2020/07/23/koa/&pic=https://yukai1202.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=Koa2从入门到精通1&url=https://yukai1202.github.io/2020/07/23/koa/&pic=https://yukai1202.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://twitter.com/intent/tweet?text=koa&url=https://yukai1202.github.io/2020/07/23/koa/&via=Yu Kai" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+          <a href="https://twitter.com/intent/tweet?text=Koa2从入门到精通1&url=https://yukai1202.github.io/2020/07/23/koa/&via=Yu Kai" target="_blank" class="mdui-ripple">分享到 Twitter</a>
         </li>
         <li class="mdui-menu-item">
           <a href="https://www.facebook.com/sharer/sharer.php?u=https://yukai1202.github.io/2020/07/23/koa/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
@@ -243,13 +243,13 @@
           <a href="https://plus.google.com/share?url=https://yukai1202.github.io/2020/07/23/koa/" target="_blank" class="mdui-ripple">分享到 Google+</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yukai1202.github.io/2020/07/23/koa/&title=koa" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yukai1202.github.io/2020/07/23/koa/&title=Koa2从入门到精通1" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Chris&title=koa&summary=&pics=https://yukai1202.github.io/null&url=https://yukai1202.github.io/2020/07/23/koa/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Chris&title=Koa2从入门到精通1&summary=&pics=https://yukai1202.github.io/null&url=https://yukai1202.github.io/2020/07/23/koa/" target="_blank" class="mdui-ripple">分享到 QQ</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://telegram.me/share/url?url=https://yukai1202.github.io/2020/07/23/koa/&text=koa" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+          <a href="https://telegram.me/share/url?url=https://yukai1202.github.io/2020/07/23/koa/&text=Koa2从入门到精通1" target="_blank" class="mdui-ripple">分享到 Telegram</a>
         </li>
       </ul>
     
@@ -259,9 +259,129 @@
   
   
   
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/Koa/ >Koa</a>
+      </i>
+    
+  </div>
+
   
   <div class="mdui-card-content mdui-typo mdui-p-x-4">
-    
+    <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Koa 是一个新的 web 框架，由 Express 幕后的原班人马打造， 致力于成为 web 应用和 API 开发领域中的一个更小、更富有表现力、更健壮的基石。 通过利用 async 函数，Koa 帮你丢弃回调函数，并有力地增强错误处理。 Koa 并没有捆绑任何中间件， 而是提供了一套优雅的方法，帮助您快速而愉快地编写服务端应用程序。<br>Koa 比 express 更轻量级，默认不包含任何中间件，都需要手动添加。启动一个简单的 Koa 服务只需要几行代码。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const Koa = require(<span class="string">'koa'</span>);</span><br><span class="line">const app = new Koa();</span><br><span class="line"></span><br><span class="line">app.use(async ctx =&gt; &#123;</span><br><span class="line">  ctx.body = <span class="string">'Hello World'</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(3000);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Koa-中间件"><a href="#Koa-中间件" class="headerlink" title="Koa 中间件"></a>Koa 中间件</h4><p>Koa 中间件是以一种类似堆栈的方式组织和执行的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">const Koa = require(<span class="string">'koa'</span>);</span><br><span class="line">const app = new Koa();</span><br><span class="line"></span><br><span class="line">// logger</span><br><span class="line"></span><br><span class="line">app.use(async (ctx, next) =&gt; &#123;</span><br><span class="line">  await next();</span><br><span class="line">  const rt = ctx.response.get(<span class="string">'X-Response-Time'</span>);</span><br><span class="line">  console.log(`<span class="variable">$&#123;ctx.method&#125;</span> <span class="variable">$&#123;ctx.url&#125;</span> - <span class="variable">$&#123;rt&#125;</span>`);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// x-response-time</span><br><span class="line"></span><br><span class="line">app.use(async (ctx, next) =&gt; &#123;</span><br><span class="line">  const start = Date.now();</span><br><span class="line">  await next();</span><br><span class="line">  const ms = Date.now() - start;</span><br><span class="line">  ctx.set(<span class="string">'X-Response-Time'</span>, `<span class="variable">$&#123;ms&#125;</span>ms`);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// response</span><br><span class="line"></span><br><span class="line">app.use(async ctx =&gt; &#123;</span><br><span class="line">  ctx.body = <span class="string">'Hello World'</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(3000);</span><br></pre></td></tr></table></figure>
+
+<p>以上面 “Hello World” 的响应作为示例，当请求开始时首先请求流通过 x-response-time 和 logging 中间件，然后继续移交控制给 response 中间件。当一个中间件调用 next() 则该函数暂停并将控制传递给定义的下一个中间件。当在下游没有更多的中间件执行后，堆栈将展开并且每个中间件恢复执行其上游行为。<br>可以用一张图片来说明，洋葱模型，中间件的执行顺序就是从左到右</p>
+<img src="/2020/07/23/koa/1.png" class>
+
+<br>
+
+<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><p>app 实例上的一些设置，目前支持如下：</p>
+<ul>
+<li>app.env 默认是 NODE_ENV 或 “development”</li>
+<li>app.keys 签名的 cookie 密钥数组</li>
+<li>app.proxy 当真正的代理头字段将被信任时</li>
+<li>忽略 .subdomains 的 app.subdomainOffset 偏移量，默认为 2</li>
+<li>app.proxyIpHeader 代理 ip 消息头, 默认为 X-Forwarded-For</li>
+<li>app.maxIpsCount 从代理 ip 消息头读取的最大 ips, 默认为 0 (代表无限)</li>
+</ul>
+<p>设置参数的方式有两种，一种是通过构造函数的方式，以参数形式传入，另一种是通过动态给实例的 app 进行赋值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const Koa = require(<span class="string">'koa'</span>);</span><br><span class="line">const app = new Koa(&#123; proxy: <span class="literal">true</span> &#125;);</span><br><span class="line">app.proxy = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+
+<p>简单介绍下重用的几个，keys，proxy,proxyIpHeader</p>
+<blockquote>
+<p>app.keys</p>
+</blockquote>
+<p>该值接收一个数组，为什么要设置成一个数组呢，先来考虑以下的一种场景，当希望更换密钥的时候，原有的的 cookie 都将因为密钥更新而导致校验失败，则用户的登录状态失效。一次还好，如果需要经常需要更新密钥，那怎么处理好？这就是 app.keys 为配置为数组的使用逻辑了。<br>当生成 cookie 时，使用 keys 中的第一个元素来生成，而校验的时候，是从第一个至最后一个，一个个的校验，直到通过为止，所以在更新密钥的时候，只需要把新的密钥加到数组第一位则可以。一般再保留两组密钥，因为更新是一个月一次，因此如果客户的 cookie 是三个月前生成的，那就会失效了。<br>cookie 的校验是基于 <a href="https://github.com/crypto-utils/keygrip" target="_blank" rel="noopener">keygrip</a> 来处理的，大家也可以使用它来做自己的一些数据校验，如验证码之类。</p>
+<p>看下设置了 keys 以后，cookies 的生成情况</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const Koa = require(<span class="string">"koa"</span>);</span><br><span class="line">const app = new Koa();</span><br><span class="line"></span><br><span class="line">app.keys = [<span class="string">"token"</span>];</span><br><span class="line">// app.keys = new KeyGrip([<span class="string">'im a newer secret'</span>, <span class="string">'i like turtle'</span>], <span class="string">'sha256'</span>); //自定义加密方式</span><br><span class="line"><span class="built_in">let</span> cookieKey = <span class="string">'name'</span></span><br><span class="line">app.use(async (ctx) =&gt; &#123;</span><br><span class="line">  <span class="built_in">let</span> value = ctx.cookies.get(cookieKey, &#123; signed: <span class="literal">true</span> &#125;);</span><br><span class="line">  console.log(value)</span><br><span class="line"></span><br><span class="line">  ctx.cookies.set(cookieKey, <span class="string">"test"</span>, &#123; signed: <span class="literal">true</span> &#125;);</span><br><span class="line">  ctx.body = <span class="string">"Hello World"</span>;</span><br><span class="line">&#125;);</span><br><span class="line">app.listen(3000);</span><br></pre></td></tr></table></figure>
+
+<p>在设置 name 这个 cookie 的时候，koa 会以 name 的值 test 加上设置的密钥，生成校验值，并写入至 name.sig 这个 cookie 中，所以能看到响应的 HTTP 头中如下所示：</p>
+<img src="/2020/07/23/koa/2.png" class>
+
+<p>在后续的请求中，获取 name 这个 cookie 时，则会根据 name.sig 的值判断是否合法，安全性上又明显提升。</p>
+<blockquote>
+<p>proxyIpHeader</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const app = new Koa(&#123;</span><br><span class="line">  proxy: <span class="literal">true</span>,</span><br><span class="line">  proxyIpHeader: <span class="string">'X-Real-IP'</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>maxIpsCount</p>
+</blockquote>
+<p>如果您确切知道服务器前面有多少个反向代理，则可以通过配置 app.maxIpsCount 来避免读取用户的伪造的请求头：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const app = new Koa(&#123;</span><br><span class="line">  proxy: <span class="literal">true</span>,</span><br><span class="line">  maxIpsCount: 1, // 服务器前只有一个代理</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// request.header[<span class="string">'X-Forwarded-For'</span>] === [ <span class="string">'127.0.0.1'</span>, <span class="string">'127.0.0.2'</span> ];</span><br><span class="line">// ctx.ips === [ <span class="string">'127.0.0.2'</span> ];</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="app-listen-…"><a href="#app-listen-…" class="headerlink" title="app.listen(…)"></a>app.listen(…)</h3><p>Koa 应用程序不是 HTTP 服务器的 1 对 1 展现。 可以将一个或多个 Koa 应用程序安装在一起以形成具有单个 HTTP 服务器的更大应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const http = require(<span class="string">'http'</span>);</span><br><span class="line">const https = require(<span class="string">'https'</span>);</span><br><span class="line">const Koa = require(<span class="string">'koa'</span>);</span><br><span class="line">const app = new Koa();</span><br><span class="line">http.createServer(app.callback()).listen(3000);</span><br><span class="line">https.createServer(app.callback()).listen(3001);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>app.callback()</p>
+</blockquote>
+<p>返回适用于 http.createServer() 方法的回调函数来处理请求。你也可以使用此回调函数将 koa 应用程序挂载到 Connect/Express 应用程序中。</p>
+<h3 id="app-context"><a href="#app-context" class="headerlink" title="app.context"></a>app.context</h3><p>app.context 是从其创建 ctx 的原型。您可以通过编辑 app.context 为 ctx 添加其他属性。这对于将 ctx 添加到整个应用程序中使用的属性或方法非常有用，这可能会更加有效（不需要中间件）和/或 更简单（更少的 require()），而更多地依赖于 ctx，这可以被认为是一种反模式。</p>
+<p>例如，要从 ctx 添加对数据库的引用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">app.context.db = db();</span><br><span class="line"></span><br><span class="line">app.use(async ctx =&gt; &#123;</span><br><span class="line">  console.log(ctx.db);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><p>默认情况下，将所有错误输出到 stderr，除非 app.silent 为 true。 当 err.status 是 404 或 err.expose 是 true 时默认错误处理程序也不会输出错误。 要执行自定义错误处理逻辑，如集中式日志记录，您可以添加一个 “error” 事件侦听器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">app.on(<span class="string">'error'</span>, err =&gt; &#123;</span><br><span class="line">  log.error(<span class="string">'server error'</span>, err)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="上下文-Context"><a href="#上下文-Context" class="headerlink" title="上下文(Context)"></a>上下文(Context)</h2><p>Koa Context 将 node 的 request 和 response 对象封装到单个对象中，为编写 Web 应用程序和 API 提供了许多有用的方法。 这些操作在 HTTP 服务器开发中频繁使用，它们被添加到此级别而不是更高级别的框架，这将强制中间件重新实现此通用功能。</p>
+<p><em>每个</em> 请求都将创建一个 Context，并在中间件中作为接收器引用，或者 ctx 标识符，如以下代码片段所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">app.use(async ctx =&gt; &#123;</span><br><span class="line">  ctx; // 这是 Context</span><br><span class="line">  ctx.request; // 这是 koa Request</span><br><span class="line">  ctx.response; // 这是 koa Response</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>为方便起见许多上下文的访问器和方法直接委托给它们的 ctx.request 或 ctx.response ，不然的话它们是相同的。 例如 ctx.type 和 ctx.length 委托给 response 对象，ctx.path 和 ctx.method 委托给 request。<br>注意：绕过 Koa 的 response 处理是 不被支持的. 应避免使用以下 node 属性：<br>res.statusCode<br>res.writeHead()<br>res.write()<br>res.end()</p>
+<br>
+
+<h3 id="ctx-中一些常用的属性"><a href="#ctx-中一些常用的属性" class="headerlink" title="ctx 中一些常用的属性"></a>ctx 中一些常用的属性</h3><blockquote>
+<p>ctx.state</p>
+</blockquote>
+<p>推荐的命名空间，用于通过中间件传递信息和你的前端视图。<br>ctx.state.user = await User.find(id);</p>
+<blockquote>
+<p>ctx.app</p>
+</blockquote>
+<p>应用程序实例引用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const Koa = require(<span class="string">"koa"</span>);</span><br><span class="line">const app = new Koa();</span><br><span class="line"></span><br><span class="line">app.use(async (ctx) =&gt; &#123;</span><br><span class="line">  ctx.app === app;</span><br><span class="line">  ctx.body = <span class="string">"Hello World"</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ctx.app.emit</p>
+</blockquote>
+<p>Koa 应用扩展了内部 EventEmitter。ctx.app.emit 发出一个类型由第一个参数定义的事件。对于每个事件，您可以连接 “listeners”，这是在发出事件时调用的函数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const Koa = require(<span class="string">"koa"</span>);</span><br><span class="line">const app = new Koa();</span><br><span class="line"></span><br><span class="line">app.use(async (ctx) =&gt; &#123;</span><br><span class="line">  ctx.app.emit(<span class="string">"coming"</span>);</span><br><span class="line">  ctx.body = <span class="string">"Hello World"</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.on(<span class="string">"coming"</span>, (err) =&gt; &#123;</span><br><span class="line">  console.log(<span class="string">"wocha"</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.listen(3000);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ctx.cookies</p>
+</blockquote>
+<p>ctx.cookies.get(name, [options])<br>ctx.cookies.set(name, value, [options])<br>options 的参数如下：</p>
+<ul>
+<li>maxAge: 一个数字, 表示从 Date.now() 得到的毫秒数.</li>
+<li>expires: 一个 Date 对象, 表示 cookie 的到期日期 (默认情况下在会话结束时过期).</li>
+<li>path: 一个字符串, 表示 cookie 的路径 (默认是/).</li>
+<li>domain: 一个字符串, 指示 cookie 的域 (无默认值).</li>
+<li>secure: 一个布尔值, 表示 cookie 是否仅通过 HTTPS 发送 (HTTP 下默认为 false, HTTPS 下默认为 true). 阅读有关此参数的更多信息.</li>
+<li>httpOnly: 一个布尔值, 表示 cookie 是否仅通过 HTTP(S) 发送，, 且不提供给客户端 JavaScript (默认为 true).</li>
+<li>sameSite: 一个布尔值或字符串, 表示该 cookie 是否为 “相同站点” cookie (默认为 false). 可以设置为 ‘strict’, ‘lax’, ‘none’, 或 true (映射为 ‘strict’).</li>
+<li>signed: 一个布尔值, 表示是否要对 cookie 进行签名 (默认为 false). 如果为 true, 则还会发送另一个后缀为 .sig 的同名 cookie, 使用一个 27-byte + url-safe base64 SHA1 值来表示针对第一个 Keygrip 键的 cookie-name=cookie-value 的哈希值. 此签名密钥用于检测下次接收 cookie 时的篡改.</li>
+<li>overwrite: 一个布尔值, 表示是否覆盖以前设置的同名的 cookie (默认是 false). 如果是 true, 在同一个请求中设置相同名称的所有 Cookie（无论路径或域）是否在设置此 Cookie 时从 Set-Cookie 消息头中过滤掉.</li>
+</ul>
+<blockquote>
+<p>ctx.throw([status], [msg], [properties])</p>
+</blockquote>
+<p>用来抛出一个包含 .status 属性错误的帮助方法，其默认值为 500。这样 Koa 就可以做出适当地响应。</p>
+<blockquote>
+<p>ctx.assert(value, [status], [msg], [properties])</p>
+</blockquote>
+<p>当 !value 时抛出一个类似 .throw 错误的帮助方法。这与 node 的 assert() 方法类似.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ctx.assert(ctx.state.user, 401, <span class="string">"User not found. Please login!"</span>);</span><br><span class="line">ctx.body = <span class="string">"Hello World"</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="response-body"><a href="#response-body" class="headerlink" title="response.body="></a>response.body=</h3><p>响应体可以设置为以下之一：</p>
+<p>string 写入<br>Buffer 写入<br>Stream 管道<br>Object || Array JSON-字符串化<br>null 无内容响应</p>
+
   </div>
   <!--文末结束语-->
   
@@ -295,7 +415,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/2020/07/23/koa/" id="toc-header" class="mdui-ripple">文章目录</a>
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Koa-中间件"><span class="toc-number">1.1.</span> <span class="toc-text">Koa 中间件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置"><span class="toc-number">2.</span> <span class="toc-text">设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#app-listen-…"><span class="toc-number">3.</span> <span class="toc-text">app.listen(…)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#app-context"><span class="toc-number">4.</span> <span class="toc-text">app.context</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误处理"><span class="toc-number">5.</span> <span class="toc-text">错误处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上下文-Context"><span class="toc-number"></span> <span class="toc-text">上下文(Context)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ctx-中一些常用的属性"><span class="toc-number">1.</span> <span class="toc-text">ctx 中一些常用的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#response-body"><span class="toc-number">2.</span> <span class="toc-text">response.body&#x3D;</span></a></li></ol>
       </li>
     </ul>
   </div>

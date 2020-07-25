@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+    
+    
+<link rel="stylesheet" href="/css/mdui.min.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            Koa2从入门到精通3 | Chris
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">Chris</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-2">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-2">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/icons/avatar.gif"/>
+                
+            </div>
+            <div class="sidebar-author-name">Yu Kai</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:198897095@qq.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a href="https://yukai1202.github.io" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2020/07/25/koa3/">Koa2从入门到精通3</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2020-07-25
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2020-07-25
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/Nodejs/">Nodejs</a> > <a class="category-link" href="/categories/Nodejs/koa/">koa</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=Koa2从入门到精通3&url=https://yukai1202.github.io/2020/07/25/koa3/&pic=https://yukai1202.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=Koa2从入门到精通3&url=https://yukai1202.github.io/2020/07/25/koa3/&via=Yu Kai" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://yukai1202.github.io/2020/07/25/koa3/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=https://yukai1202.github.io/2020/07/25/koa3/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yukai1202.github.io/2020/07/25/koa3/&title=Koa2从入门到精通3" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Chris&title=Koa2从入门到精通3&summary=&pics=https://yukai1202.github.io/null&url=https://yukai1202.github.io/2020/07/25/koa3/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=https://yukai1202.github.io/2020/07/25/koa3/&text=Koa2从入门到精通3" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/Koa/ >Koa</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h3 id="常用中间件介绍"><a href="#常用中间件介绍" class="headerlink" title="常用中间件介绍"></a>常用中间件介绍</h3><h3 id="koa-router"><a href="#koa-router" class="headerlink" title="@koa/router"></a>@koa/router</h3><p><a href="https://github.com/koajs/router/blob/master/API.md" target="_blank" rel="noopener">参考</a></p>
+<blockquote>
+<p>demo</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">const Koa = require(<span class="string">'koa'</span>);</span><br><span class="line">const Router = require(<span class="string">'@koa/router'</span>);</span><br><span class="line"></span><br><span class="line">const app = new Koa();</span><br><span class="line">const router = new Router();</span><br><span class="line"></span><br><span class="line">router</span><br><span class="line">  .get(<span class="string">'/'</span>, (ctx, next) =&gt; &#123;</span><br><span class="line">    ctx.body = <span class="string">'Hello World!'</span>;</span><br><span class="line">  &#125;)</span><br><span class="line">  .post(<span class="string">'/users'</span>, (ctx, next) =&gt; &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;)</span><br><span class="line">  .put(<span class="string">'/users/:id'</span>, (ctx, next) =&gt; &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;)</span><br><span class="line">  .del(<span class="string">'/users/:id'</span>, (ctx, next) =&gt; &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;)</span><br><span class="line">  .all(<span class="string">'/users/:id'</span>, (ctx, next) =&gt; &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">app</span><br><span class="line">  .use(router.routes())</span><br><span class="line">  .use(router.allowedMethods());</span><br></pre></td></tr></table></figure>
+
+<h4 id="route-的定义方式主要有以下几种"><a href="#route-的定义方式主要有以下几种" class="headerlink" title="route 的定义方式主要有以下几种"></a>route 的定义方式主要有以下几种</h4><blockquote>
+<p>Named routes</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">router.get(<span class="string">'user'</span>, <span class="string">'/users/:id'</span>, (ctx, next) =&gt; &#123;</span><br><span class="line"> // ...</span><br><span class="line">&#125;);</span><br><span class="line">router.url(<span class="string">'user'</span>, 3);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Mutiple middleware</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">router.get(</span><br><span class="line">  <span class="string">'/users/:id'</span>,</span><br><span class="line">  (ctx, next) =&gt; &#123;</span><br><span class="line">    <span class="built_in">return</span> User.findOne(ctx.params.id).<span class="keyword">then</span>(<span class="keyword">function</span>(user) &#123;</span><br><span class="line">      ctx.user = user;</span><br><span class="line">      next();</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  ctx =&gt; &#123;</span><br><span class="line">    console.log(ctx.user);</span><br><span class="line">    // =&gt; &#123; id: 17, name: <span class="string">"Alex"</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Nested routers</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const forums = new Router();</span><br><span class="line">const posts = new Router();</span><br><span class="line"></span><br><span class="line">posts.get(<span class="string">'/'</span>, (ctx, next) =&gt; &#123;...&#125;);</span><br><span class="line">posts.get(<span class="string">'/:pid'</span>, (ctx, next) =&gt; &#123;...&#125;);</span><br><span class="line">forums.use(<span class="string">'/forums/:fid/posts'</span>, posts.routes(), posts.allowedMethods());</span><br><span class="line"></span><br><span class="line">// responds to <span class="string">"/forums/123/posts"</span> and <span class="string">"/forums/123/posts/123"</span></span><br><span class="line">app.use(forums.routes());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Router prefixes</span></span><br><span class="line">const router = new Router(&#123;</span><br><span class="line">  prefix: <span class="string">'/users'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.get(<span class="string">'/'</span>, ...); // responds to <span class="string">"/users"</span></span><br><span class="line">router.get(<span class="string">'/:id'</span>, ...); // responds to <span class="string">"/users/:id"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="route-的一些方法"><a href="#route-的一些方法" class="headerlink" title="route 的一些方法"></a>route 的一些方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">router.redirect(<span class="string">'/login'</span>, <span class="string">'sign-in'</span>);</span><br><span class="line"></span><br><span class="line">router.route(name) ⇒ Layer | <span class="literal">false</span> <span class="comment">#路由查找</span></span><br><span class="line"></span><br><span class="line">router.url(name, params, [options]) ⇒ String | Error  <span class="comment">#生成url</span></span><br><span class="line">Router.url(path, params) ⇒ String   <span class="comment">#生成url</span></span><br><span class="line"></span><br><span class="line">router.param(param, middleware) ⇒ Router  <span class="comment">#用于带参数别名路由，可以用来提前做一些验证</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="koa-body"><a href="#koa-body" class="headerlink" title="koa-body"></a>koa-body</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const Koa = require(<span class="string">'koa'</span>);</span><br><span class="line">const koaBody = require(<span class="string">'koa-body'</span>);</span><br><span class="line"></span><br><span class="line">const app = new Koa();</span><br><span class="line"></span><br><span class="line">app.use(koaBody());</span><br><span class="line">app.use(ctx =&gt; &#123;</span><br><span class="line">  ctx.body = `Request Body: <span class="variable">$&#123;JSON.stringify(ctx.request.body)&#125;</span>`;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(3000);</span><br><span class="line"></span><br><span class="line"><span class="comment"># 和koa-router一起可以</span></span><br><span class="line"></span><br><span class="line">router.post(<span class="string">'/users'</span>, koaBody(),</span><br><span class="line">  (ctx) =&gt; &#123;</span><br><span class="line">    console.log(ctx.request.body);</span><br><span class="line">    // =&gt; POST body</span><br><span class="line">    ctx.body = JSON.stringify(ctx.request.body);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>koaBody 的可以传入一些参数 Options：<br>常用的如下</p>
+<ul>
+<li>jsonLimit {String|Integer} The byte (if integer) limit of the JSON body, default 1mb</li>
+<li>formLimit {String|Integer} The byte (if integer) limit of the form body, default 56kb</li>
+<li>textLimit {String|Integer} The byte (if integer) limit of the text body, default 56kb</li>
+<li>encoding {String} Sets encoding for incoming form fields, default utf-8</li>
+<li>multipart {Boolean} Parse multipart bodies, default false</li>
+<li>urlencoded {Boolean} Parse urlencoded bodies, default true</li>
+<li>text {Boolean} Parse text bodies, such as XML, default true</li>
+<li>json {Boolean} Parse JSON bodies, default true</li>
+<li>formidable {Object} Options to pass to the formidable multipart parser</li>
+<li>onError {Function} Custom error handle, if throw an error, you can customize the response - onError(error, context), default will throw</li>
+<li>parsedMethods {String[]} Declares the HTTP methods where bodies will be parsed, default [‘POST’, ‘PUT’, ‘PATCH’]. Replaces strict option.</li>
+</ul>
+<p>formidable 可以对文件上传做一些配置，比如大小限制等，具体参考 <a href="https://github.com/node-formidable/formidable" target="_blank" rel="noopener">node-formidable</a></p>
+<ul>
+<li>maxFields {Integer} Limits the number of fields that the querystring parser will decode, default 1000</li>
+<li>maxFieldsSize {Integer} Limits the amount of memory all fields together (except files) can allocate in</li>
+<li>uploadDir {String} Sets the directory for placing file uploads in, default os.tmpDir()</li>
+<li>keepExtensions {Boolean} Files written to uploadDir will include the extensions of the original files, default false</li>
+<li>hash {String} If you want checksums calculated for incoming files, set this to either ‘sha1’ or ‘md5’, default false</li>
+<li>multiples {Boolean} Multiple file uploads or no, default true</li>
+<li>onFileBegin {Function} Special callback on file begin. The function is executed directly by formidable. It can be used to rename files before saving them to disk.</li>
+</ul>
+<h3 id="koa-static"><a href="#koa-static" class="headerlink" title="koa-static"></a>koa-static</h3><p>提供直接访问静态文件的中间件，通过 url 访问的路径是绝对真实路径，如果想设置路径别名，请使用 <a href="https://github.com/koajs/mount" target="_blank" rel="noopener">koa-mount</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const serve = require(<span class="string">'koa-static'</span>);</span><br><span class="line">const Koa = require(<span class="string">'koa'</span>);</span><br><span class="line">const app = new Koa();</span><br><span class="line"></span><br><span class="line">// $ GET /package.json</span><br><span class="line">app.use(serve(<span class="string">'.'</span>));</span><br><span class="line"></span><br><span class="line">// $ GET /hello.txt</span><br><span class="line">app.use(serve(<span class="string">'test/fixtures'</span>));</span><br><span class="line"></span><br><span class="line">// or use absolute paths</span><br><span class="line">app.use(serve(__dirname + <span class="string">'/test/fixtures'</span>));</span><br><span class="line"></span><br><span class="line">app.listen(3000);</span><br><span class="line"></span><br><span class="line">console.log(<span class="string">'listening on port 3000'</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="koa-views"><a href="#koa-views" class="headerlink" title="koa-views"></a>koa-views</h3><p>动态模板渲染中间件，支持很多模板引擎，例如：<br>ejs，handlebars，pug，react 等等，<a href="https://github.com/tj/consolidate.js#supported-template-engines" target="_blank" rel="noopener">支持列表</a><br><a href="https://github.com/queckezz/koa-views" target="_blank" rel="noopener">参考</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var views = require(<span class="string">'koa-views'</span>);</span><br><span class="line"></span><br><span class="line">const render = views(__dirname + <span class="string">'/views'</span>, &#123;</span><br><span class="line">  map: &#123;</span><br><span class="line">    html: <span class="string">'underscore'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// Must be used before any router is used</span><br><span class="line">app.use(render)</span><br><span class="line">// OR Expand by app.context</span><br><span class="line">// No order restrictions</span><br><span class="line">// app.context.render = render()</span><br><span class="line"></span><br><span class="line">app.use(async <span class="keyword">function</span> (ctx) &#123;</span><br><span class="line">  ctx.state = &#123;</span><br><span class="line">    session: this.session,</span><br><span class="line">    title: <span class="string">'app'</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  await ctx.render(<span class="string">'user'</span>, &#123;</span><br><span class="line">    user: <span class="string">'John'</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="koa2-cors"><a href="#koa2-cors" class="headerlink" title="koa2-cors"></a>koa2-cors</h3><p>支持客户端跨越请求</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var Koa = require(<span class="string">'koa'</span>);</span><br><span class="line">var cors = require(<span class="string">'koa2-cors'</span>);</span><br><span class="line"></span><br><span class="line">var app = new Koa();</span><br><span class="line">app.use(cors());</span><br><span class="line">app.use(cors(&#123;</span><br><span class="line">  origin: <span class="keyword">function</span>(ctx) &#123;</span><br><span class="line">    <span class="keyword">if</span> (ctx.url === <span class="string">'/test'</span>) &#123;</span><br><span class="line">      <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> <span class="string">'*'</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  exposeHeaders: [<span class="string">'WWW-Authenticate'</span>, <span class="string">'Server-Authorization'</span>],</span><br><span class="line">  maxAge: 5,</span><br><span class="line">  credentials: <span class="literal">true</span>,</span><br><span class="line">  allowMethods: [<span class="string">'GET'</span>, <span class="string">'POST'</span>, <span class="string">'DELETE'</span>],</span><br><span class="line">  allowHeaders: [<span class="string">'Content-Type'</span>, <span class="string">'Authorization'</span>, <span class="string">'Accept'</span>],</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+
+<h3 id="winston-winston-daily-rotate-file"><a href="#winston-winston-daily-rotate-file" class="headerlink" title="winston + winston-daily-rotate-file"></a>winston + winston-daily-rotate-file</h3><p>log 输出到日志文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">var winston = require(<span class="string">"winston"</span>);</span><br><span class="line">require(<span class="string">"winston-daily-rotate-file"</span>);</span><br><span class="line"></span><br><span class="line">var debugTransport = new winston.transports.DailyRotateFile(&#123;</span><br><span class="line">  filename: <span class="string">"logs/debug-%DATE%.log"</span>,</span><br><span class="line">  datePattern: <span class="string">"YYYY-MM-DD"</span>,</span><br><span class="line">  zippedArchive: <span class="literal">true</span>,</span><br><span class="line">  level: <span class="string">"debug"</span>,</span><br><span class="line">  maxSize: <span class="string">"20m"</span>,</span><br><span class="line">  maxFiles: <span class="string">"14d"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">var errorTransport = new winston.transports.DailyRotateFile(&#123;</span><br><span class="line">  filename: <span class="string">"logs/error-%DATE%.log"</span>,</span><br><span class="line">  datePattern: <span class="string">"YYYY-MM-DD"</span>,</span><br><span class="line">  zippedArchive: <span class="literal">true</span>,</span><br><span class="line">  level: <span class="string">"error"</span>,</span><br><span class="line">  maxSize: <span class="string">"20m"</span>,</span><br><span class="line">  maxFiles: <span class="string">"14d"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">var infoTransport = new winston.transports.DailyRotateFile(&#123;</span><br><span class="line">  filename: <span class="string">"logs/info-%DATE%.log"</span>,</span><br><span class="line">  datePattern: <span class="string">"YYYY-MM-DD"</span>,</span><br><span class="line">  zippedArchive: <span class="literal">true</span>,</span><br><span class="line">  level: <span class="string">"info"</span>,</span><br><span class="line">  maxSize: <span class="string">"20m"</span>,</span><br><span class="line">  maxFiles: <span class="string">"14d"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">const formatter = winston.format.combine(</span><br><span class="line">  // string use util.format</span><br><span class="line">  winston.format.splat(),</span><br><span class="line">  // timestamp to format</span><br><span class="line">  winston.format.timestamp(&#123;</span><br><span class="line">    format: <span class="string">"YYYY-MM-DD HH:mm:ss.SSS"</span></span><br><span class="line">  &#125;),</span><br><span class="line">  winston.format.printf(info =&gt; &#123;</span><br><span class="line">    <span class="built_in">return</span> `<span class="variable">$&#123;info.timestamp&#125;</span> <span class="variable">$&#123;info.level&#125;</span>:<span class="variable">$&#123;info.message&#125;</span>`;</span><br><span class="line">  &#125;)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">const logger = winston.createLogger(&#123;</span><br><span class="line">  level: <span class="string">"info"</span>,</span><br><span class="line">  format: formatter,</span><br><span class="line">  transports: [</span><br><span class="line">    //</span><br><span class="line">    // - Write to all logs with level `info` and below to `combined.log`</span><br><span class="line">    // - Write all logs error (and below) to `error.log`.</span><br><span class="line">    //</span><br><span class="line">    errorTransport,</span><br><span class="line">    infoTransport,</span><br><span class="line">    debugTransport</span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br><span class="line">module.exports = logger;</span><br></pre></td></tr></table></figure>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2020/07/25/koa4/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>Koa2从入门到精通4</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2020/07/24/koa2/">
+        <span>Koa2从入门到精通2</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2020/07/25/koa3/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用中间件介绍"><span class="toc-number">1.</span> <span class="toc-text">常用中间件介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#koa-router"><span class="toc-number">2.</span> <span class="toc-text">@koa&#x2F;router</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#route-的定义方式主要有以下几种"><span class="toc-number">2.1.</span> <span class="toc-text">route 的定义方式主要有以下几种</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#route-的一些方法"><span class="toc-number">2.2.</span> <span class="toc-text">route 的一些方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#koa-body"><span class="toc-number">3.</span> <span class="toc-text">koa-body</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#koa-static"><span class="toc-number">4.</span> <span class="toc-text">koa-static</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#koa-views"><span class="toc-number">5.</span> <span class="toc-text">koa-views</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#koa2-cors"><span class="toc-number">6.</span> <span class="toc-text">koa2-cors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#winston-winston-daily-rotate-file"><span class="toc-number">7.</span> <span class="toc-text">winston + winston-daily-rotate-file</span></a></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+  </main>
+  <footer
+  id="footer"
+  class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme"
+>
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+      <span>
+        &copy; 2018 - 2020  Yu Kai
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+      <span
+        >Theme:
+        <a
+          href="https://github.com/kb1000fx/hexo-theme-meadow"
+          rel="noopener"
+          target="_blank"
+          >Meadow</a
+        ></span
+      >
+      
+    </div>
+    <div class="mdui-row">
+      
+    </div>
+  </div>
+</footer>
+
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+<script src="/js/mdui.min.js"></script>
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

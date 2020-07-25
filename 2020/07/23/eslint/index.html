@@ -261,7 +261,13 @@
   
   
   <div class="mdui-card-content mdui-typo mdui-p-x-4">
-    
+    <p><a href="https://eslint.bootcss.com/docs/user-guide/configuring" target="_blank" rel="noopener">入门指南</a></p>
+<p>eslint 引入主要是为了 统一代码风格，预先检查错误。<br>一些常用属性介绍：</p>
+<p>extends 配置预先设置的规则，</p>
+<p>rules 自定义引入规，例如： “no-console”:’off’， 一般有三个参数选择 off、warn 和 error。<br>‘indent’: [ ‘error’, 2 ]<br>‘quotes’: [ ‘error’, ‘single’ ],</p>
+<p>overrides</p>
+<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  <span class="string">"extends"</span>: [<span class="string">"eslint:recommended"</span>], <span class="comment"># airbnb, all</span></span><br><span class="line">  <span class="string">"rules"</span>: &#123;</span><br><span class="line">    // <span class="built_in">enable</span> additional rules</span><br><span class="line">    <span class="string">"indent"</span>: [<span class="string">"error"</span>, 4],</span><br><span class="line">    <span class="string">"linebreak-style"</span>: [<span class="string">"error"</span>, <span class="string">"unix"</span>],</span><br><span class="line">    <span class="string">"quotes"</span>: [<span class="string">"error"</span>, <span class="string">"double"</span>],</span><br><span class="line">    <span class="string">"semi"</span>: [<span class="string">"error"</span>, <span class="string">"always"</span>],</span><br><span class="line"></span><br><span class="line">    // override default options <span class="keyword">for</span> rules from base configurations</span><br><span class="line">    <span class="string">"comma-dangle"</span>: [<span class="string">"error"</span>, <span class="string">"always"</span>],</span><br><span class="line">    <span class="string">"no-cond-assign"</span>: [<span class="string">"error"</span>, <span class="string">"always"</span>],</span><br><span class="line"></span><br><span class="line">    // <span class="built_in">disable</span> rules from base configurations</span><br><span class="line">    <span class="string">"no-console"</span>: <span class="string">"off"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"overrides"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"files"</span>: [<span class="string">"*.md"</span>],</span><br><span class="line">        <span class="string">"processor"</span>: <span class="string">"a-plugin/markdown"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"files"</span>: [<span class="string">"**/*.md/*.js"</span>],</span><br><span class="line">        <span class="string">"rules"</span>: &#123;</span><br><span class="line">            <span class="string">"strict"</span>: <span class="string">"off"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
   </div>
   <!--文末结束语-->
   
@@ -280,7 +286,7 @@
     
     
       <a rel="next" class="post-nav-item mdui-float-right" href="/2020/07/23/cache/">
-        <span>cache</span>
+        <span>强制缓存和协商缓存</span>
         <i class="iconfont icon-angle-right"></i>
       </a>
     
@@ -295,7 +301,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/2020/07/23/eslint/" id="toc-header" class="mdui-ripple">文章目录</a>
-        
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#例子"><span class="toc-number">1.</span> <span class="toc-text">例子</span></a></li></ol>
       </li>
     </ul>
   </div>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+    
+    
+<link rel="stylesheet" href="/css/mdui.min.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            pm2常用命令配置及原理 | Chris
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">Chris</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-2">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-2">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/icons/avatar.gif"/>
+                
+            </div>
+            <div class="sidebar-author-name">Yu Kai</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:198897095@qq.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a href="https://yukai1202.github.io" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2020/07/24/pm2/">pm2常用命令配置及原理</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2020-07-24
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2020-07-24
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=pm2常用命令配置及原理&url=https://yukai1202.github.io/2020/07/24/pm2/&pic=https://yukai1202.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=pm2常用命令配置及原理&url=https://yukai1202.github.io/2020/07/24/pm2/&via=Yu Kai" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://yukai1202.github.io/2020/07/24/pm2/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=https://yukai1202.github.io/2020/07/24/pm2/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yukai1202.github.io/2020/07/24/pm2/&title=pm2常用命令配置及原理" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Chris&title=pm2常用命令配置及原理&summary=&pics=https://yukai1202.github.io/null&url=https://yukai1202.github.io/2020/07/24/pm2/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=https://yukai1202.github.io/2020/07/24/pm2/&text=pm2常用命令配置及原理" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <blockquote>
+<p>pm2 介绍</p>
+</blockquote>
+<p>PM2 是 node 进程管理工具，可以利用它来简化很多 node 应用管理的繁琐任务，如性能监控、自动重启、负载均衡等，而且使用非常简单。</p>
+<blockquote>
+<p>pm2 原理</p>
+</blockquote>
+<p>Node.js 的 Cluster 多进程模式。 PM2 的实现原理，它是基于 Cluster 模式的封装。</p>
+<h4 id="Node-js-的-cluster-模块"><a href="#Node-js-的-cluster-模块" class="headerlink" title="Node.js 的 cluster 模块"></a>Node.js 的 cluster 模块</h4><p>Cluster 会创建一个 master，然后根据你指定的数量复制出多个 server app（也被称之为工作线程）。它通过 IPC 通道与工作线程之间进行通信，并使用内置的负载均衡来更好地处理线程之间的压力，该负载均衡使用了 Round-robin 算法（也被称之为循环算法）。</p>
+<p>当使用 Round-robin 调度策略时，master accepts()所有传入的连接请求，然后将相应的 TCP 请求处理发送给选中的工作线程（该方式仍然通过 IPC 来进行通信）。<a href="https://www.cnblogs.com/accordion/p/7207740.html" target="_blank" rel="noopener">参考文章</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var cluster = require(<span class="string">'cluster'</span>);</span><br><span class="line">var http    = require(<span class="string">'http'</span>);</span><br><span class="line">var os      = require(<span class="string">'os'</span>);</span><br><span class="line"></span><br><span class="line">var numCPUs = os.cpus().length;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (cluster.isMaster) &#123;</span><br><span class="line">  // Master:</span><br><span class="line">  // Let<span class="string">'s fork as many workers as you have CPU cores</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  for (var i = 0; i &lt; numCPUs; ++i) &#123;</span></span><br><span class="line"><span class="string">      cluster.fork();</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125; else &#123;</span></span><br><span class="line"><span class="string">  // Worker:</span></span><br><span class="line"><span class="string">  // Let'</span>s spawn a HTTP server</span><br><span class="line">  // (Workers can share any TCP connection.</span><br><span class="line">  //  In this <span class="keyword">case</span> its a HTTP server)</span><br><span class="line"></span><br><span class="line">  http.createServer(<span class="keyword">function</span>(req, res) &#123;</span><br><span class="line">    res.writeHead(200);</span><br><span class="line">    res.end(<span class="string">"hello world"</span>);</span><br><span class="line">  &#125;).listen(8080);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行上面的代码，会发现 Master 进程仅仅 fork 出了子进程，并没有创建 httpserver，而子进程却创建了多个 server。</p>
+<h5 id="cluster-js"><a href="#cluster-js" class="headerlink" title="cluster.js"></a>cluster.js</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const childOrMaster = <span class="string">'NODE_UNIQUE_ID'</span> <span class="keyword">in</span> process.env ? <span class="string">'child'</span> : <span class="string">'master'</span>;</span><br><span class="line">module.exports = require(`internal/cluster/<span class="variable">$&#123;childOrMaster&#125;</span>`);</span><br></pre></td></tr></table></figure>
+
+<p>cluster.js 源码可以看出，有 NODE_UNIQUE_ID 的是子进程，没有就是 Master 进程。那猜测应该是在 fork 内部对子进程添加了 NODE_UNIQUE_ID。</p>
+<h5 id="主进程-httpserver"><a href="#主进程-httpserver" class="headerlink" title="主进程 httpserver"></a>主进程 httpserver</h5><p>主进程执行完毕后，子进程开始执行响应的代码，子进程首先创建 httpserver，然后监听端口号，而正是这个 listen 方法，暗藏着问题的关键。http 模块 http.server 继承了 net 模块的 net.server，那我们就来看看 net.js 中的 Server.prototype.listen 干了哪些事。</p>
+<img src="/2020/07/24/pm2/1.png" class title="This is an test image">
+
+<p>可以猜测出，只有 Master 进程 才去真正做了监听_listen2。如果是子进程，则执行_getserver 函数，该函数位于 lib/internal/cluster/child.js 中，它会传入创建 httpserver 所需要的端口等相关信息，并向主进程发送‘serverQuery’指令，主进程接收到‘serverQuery’指令后，会 new 出一个 RoundRobinHandle 的实例，在这个过程中，主进程服务被创建，端口被监听，子进程被加入到调度度列中。这些完成后，子进程执行回调函数，继续后续操作。</p>
+<h5 id="子进程-内部实现"><a href="#子进程-内部实现" class="headerlink" title="子进程 内部实现"></a>子进程 内部实现</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">function</span> rr(message, indexesKey, cb) &#123;</span><br><span class="line">  <span class="keyword">if</span> (message.errno)</span><br><span class="line">    <span class="built_in">return</span> cb(message.errno, null);</span><br><span class="line"></span><br><span class="line">  var key = message.key;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> listen(backlog) &#123;</span><br><span class="line">    // TODO(bnoordhuis) Send a message to the master that tells it to</span><br><span class="line">    // update the backlog size. The actual backlog should probably be</span><br><span class="line">    // the largest requested size by any worker.</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">  &#125;</span><br><span class="line">  //...</span><br><span class="line">  const handle = &#123; close, listen, ref: noop, unref: noop &#125;;</span><br><span class="line">  handles[key] = handle;</span><br><span class="line">  cb(0, handle);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到 listen 方法直接返回 0，并没有去侦听端口。最后，调用 cb 函数，将 fake 后的 handle 传递给上层 net.Server，设置 net.Server 对底层的 socket 的引用。此后，子进程利用 fake 后的 handle 做端口侦听（其实压根啥都没有做），执行成功后返回。</p>
+<h5 id="client-通过-tcp-连接向主进程发送请求，那主进程又是如何将请求传递给子进程处理呢？"><a href="#client-通过-tcp-连接向主进程发送请求，那主进程又是如何将请求传递给子进程处理呢？" class="headerlink" title="client 通过 tcp 连接向主进程发送请求，那主进程又是如何将请求传递给子进程处理呢？"></a>client 通过 tcp 连接向主进程发送请求，那主进程又是如何将请求传递给子进程处理呢？</h5><p>子进程 TCP 服务器没有创建底层 socket，它主要依赖 IPC 通道与主进程通信，既然主进程负责接受客户端请求，那么理所应当由主进程分发客户端请求给某个子进程，由子进程处理请求。具体分配给哪个子进程处理，是由 round-robbine 分发策略来决定的。由于子进程在 server 中设置了对底层的 socket 的引用，所以子进程接收到任务后，触发 connection 事件开始执行业务逻辑。</p>
+<h3 id="pm2-流程总结"><a href="#pm2-流程总结" class="headerlink" title="pm2 流程总结"></a>pm2 流程总结</h3><ul>
+<li><p>cluster 在创建子进程时，会在环境变量中增加标识，以此来区分主进程和子进程</p>
+</li>
+<li><p>listen 函数在实现时对主进程和子进程进行了区分，在不同的进程中会执行不同操作</p>
+</li>
+<li><p>nodeJS 封装了进程间通信的方法，支持在进程间发送句柄的功能，句柄可以是一个 socket 对象，一个管道等等</p>
+</li>
+<li><p>一个端口只能被一个进程监听，但是该端口可以建立多个连接(accpet 是产生的套接字)，不同进程间可以共享这些套接字</p>
+</li>
+<li><p>子进程的 listen 函数并没有监听端口，它在 listen 时将端口和地址等信息发送给主进程，由主进程进行监听。</p>
+</li>
+</ul>
+<h6 id="主进程在收到-accept-事件时，产生连接-socket，并把它发送给子进程。子进程直接通过该-socket-跟-client-端进行通信"><a href="#主进程在收到-accept-事件时，产生连接-socket，并把它发送给子进程。子进程直接通过该-socket-跟-client-端进行通信" class="headerlink" title="主进程在收到 accept 事件时，产生连接 socket，并把它发送给子进程。子进程直接通过该 socket 跟 client 端进行通信"></a>主进程在收到 accept 事件时，产生连接 socket，并把它发送给子进程。子进程直接通过该 socket 跟 client 端进行通信</h6><br>
+
+<blockquote>
+<p>pm2 常用的命令行</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ pm2 start app.js <span class="comment"># 启动 app.js 应用程序</span></span><br><span class="line"></span><br><span class="line">$ pm2 start app.js -i 4 <span class="comment"># cluster mode 模式启动 4 个 app.js 的应用实例 # 4 个应用程序会自动进行负载均衡</span></span><br><span class="line"></span><br><span class="line">$ pm2 start app.js --name=<span class="string">"api"</span> <span class="comment"># 启动应用程序并命名为 "api"</span></span><br><span class="line"></span><br><span class="line">$ pm2 start app.js --watch <span class="comment"># 当文件变化时自动重启应用</span></span><br><span class="line"></span><br><span class="line">$ pm2 start script.sh <span class="comment"># 启动 bash 脚本</span></span><br><span class="line"></span><br><span class="line">$ pm2 list <span class="comment"># 列表 PM2 启动的所有的应用程序</span></span><br><span class="line"></span><br><span class="line">$ pm2 monit <span class="comment"># 显示每个应用程序的 CPU 和内存占用情况</span></span><br><span class="line"></span><br><span class="line">$ pm2 show [app-name] <span class="comment"># 显示应用程序的所有信息</span></span><br><span class="line"></span><br><span class="line">$ pm2 logs <span class="comment"># 显示所有应用程序的日志</span></span><br><span class="line"></span><br><span class="line">$ pm2 logs [app-name] <span class="comment"># 显示指定应用程序的日志</span></span><br><span class="line"></span><br><span class="line">$ pm2 flush</span><br><span class="line"></span><br><span class="line">$ pm2 stop all <span class="comment"># 停止所有的应用程序</span></span><br><span class="line"></span><br><span class="line">$ pm2 stop 0 <span class="comment"># 停止 id 为 0 的指定应用程序</span></span><br><span class="line"></span><br><span class="line">$ pm2 restart all <span class="comment"># 重启所有应用</span></span><br><span class="line"></span><br><span class="line">$ pm2 reload all <span class="comment"># 重启 cluster mode 下的所有应用</span></span><br><span class="line"></span><br><span class="line">$ pm2 gracefulReload all <span class="comment"># Graceful reload all apps in cluster mode</span></span><br><span class="line"></span><br><span class="line">$ pm2 delete all <span class="comment"># 关闭并删除所有应用</span></span><br><span class="line"></span><br><span class="line">$ pm2 delete 0 <span class="comment"># 删除指定应用 id 0</span></span><br><span class="line"></span><br><span class="line">$ pm2 scale api 10 <span class="comment"># 把名字叫 api 的应用扩展到 10 个实例</span></span><br><span class="line"></span><br><span class="line">$ pm2 reset [app-name] <span class="comment"># 重置重启数量</span></span><br><span class="line"></span><br><span class="line">$ pm2 startup <span class="comment"># 创建开机自启动命令</span></span><br><span class="line"></span><br><span class="line">$ pm2 save <span class="comment"># 保存当前应用列表</span></span><br><span class="line"></span><br><span class="line">$ pm2 resurrect <span class="comment"># 重新加载保存的应用列表</span></span><br><span class="line"></span><br><span class="line">$ pm2 update <span class="comment"># Save processes, kill PM2 and restore processes</span></span><br><span class="line"></span><br><span class="line">$ pm2 generate <span class="comment"># Generate a sample json configuration file</span></span><br><span class="line"></span><br><span class="line">$ pm2 deploy app.json prod setup <span class="comment"># Setup "prod" remote server</span></span><br><span class="line"></span><br><span class="line">$ pm2 deploy app.json prod <span class="comment"># Update "prod" remote server</span></span><br><span class="line"></span><br><span class="line">$ pm2 deploy app.json prod revert 2 <span class="comment"># Revert "prod" remote server by 2</span></span><br><span class="line"></span><br><span class="line">$ pm2 module:generate [name] <span class="comment"># Generate sample module with name [name]</span></span><br><span class="line"></span><br><span class="line">$ pm2 install pm2-logrotate <span class="comment"># Install module (here a log rotation system)</span></span><br><span class="line"></span><br><span class="line">$ pm2 uninstall pm2-logrotate <span class="comment"># Uninstall module</span></span><br><span class="line"></span><br><span class="line">$ pm2 publish <span class="comment"># Increment version, git push and npm publish</span></span><br><span class="line"></span><br><span class="line">$ pm2 start big-array.js --max-memory-restart 20M   <span class="comment"># 在超过使用内存上限后自动重启</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<blockquote>
+<p>pm2 自定义配置文件</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"apps"</span>: &#123;</span><br><span class="line">      <span class="string">"name"</span>: <span class="string">"wuwu"</span>,                             // 项目名</span><br><span class="line">      <span class="string">"script"</span>: <span class="string">"./bin/www"</span>,                      // 执行文件</span><br><span class="line">      <span class="string">"cwd"</span>: <span class="string">"./"</span>,                                // 根目录</span><br><span class="line">      <span class="string">"args"</span>: <span class="string">""</span>,                                 // 传递给脚本的参数</span><br><span class="line">      <span class="string">"interpreter"</span>: <span class="string">""</span>,                          // 指定的脚本解释器</span><br><span class="line">      <span class="string">"interpreter_args"</span>: <span class="string">""</span>,                     // 传递给解释器的参数</span><br><span class="line">      <span class="string">"watch"</span>: <span class="literal">true</span>,                              // 是否监听文件变动然后重启</span><br><span class="line">      <span class="string">"ignore_watch"</span>: [                           // 不用监听的文件</span><br><span class="line">          <span class="string">"node_modules"</span>,</span><br><span class="line">          <span class="string">"logs"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="string">"exec_mode"</span>: <span class="string">"cluster_mode"</span>,                // 应用启动模式，支持fork和cluster模式</span><br><span class="line">      <span class="string">"instances"</span>: 4,                             // 应用启动实例个数，仅在cluster模式有效 默认为fork；或者 max</span><br><span class="line">      <span class="string">"max_memory_restart"</span>: 8,                    // 最大内存限制数，超出自动重启</span><br><span class="line">      <span class="string">"error_file"</span>: <span class="string">"./logs/app-err.log"</span>,         // 错误日志文件</span><br><span class="line">      <span class="string">"out_file"</span>: <span class="string">"./logs/app-out.log"</span>,           // 正常日志文件</span><br><span class="line">      <span class="string">"merge_logs"</span>: <span class="literal">true</span>,                         // 设置追加日志而不是新建日志</span><br><span class="line">      <span class="string">"log_date_format"</span>: <span class="string">"YYYY-MM-DD HH:mm:ss"</span>,   // 指定日志文件的时间格式</span><br><span class="line">      <span class="string">"min_uptime"</span>: <span class="string">"60s"</span>,                        // 应用运行少于时间被认为是异常启动</span><br><span class="line">      <span class="string">"max_restarts"</span>: 30,                         // 最大异常重启次数，即小于min_uptime运行时间重启次数；</span><br><span class="line">      <span class="string">"autorestart"</span>: <span class="literal">true</span>,                        // 默认为<span class="literal">true</span>, 发生异常的情况下自动重启</span><br><span class="line">      <span class="string">"cron_restart"</span>: <span class="string">""</span>,                         // crontab时间格式重启应用，目前只支持cluster模式;</span><br><span class="line">      <span class="string">"restart_delay"</span>: <span class="string">"60s"</span>                      // 异常重启情况下，延时重启时间</span><br><span class="line">      <span class="string">"env"</span>: &#123;</span><br><span class="line">          <span class="string">"NODE_ENV"</span>: <span class="string">"production"</span>,                // 环境参数，当前指定为生产环境 process.env.NODE_ENV</span><br><span class="line">          <span class="string">"REMOTE_ADDR"</span>: <span class="string">"爱上大声地"</span>               // process.env.REMOTE_ADDR</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">"env_dev"</span>: &#123;</span><br><span class="line">          <span class="string">"NODE_ENV"</span>: <span class="string">"development"</span>,              // 环境参数，当前指定为开发环境 pm2 start app.js --env_dev</span><br><span class="line">          <span class="string">"REMOTE_ADDR"</span>: <span class="string">""</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">"env_test"</span>: &#123;                               // 环境参数，当前指定为测试环境 pm2 start app.js --env_test</span><br><span class="line">          <span class="string">"NODE_ENV"</span>: <span class="string">"test"</span>,</span><br><span class="line">          <span class="string">"REMOTE_ADDR"</span>: <span class="string">""</span></span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2020/07/24/domcontentload/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>js中的load 和 domcontentloaded区别</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2020/07/24/typescript/">
+        <span>typescript</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2020/07/24/pm2/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Node-js-的-cluster-模块"><span class="toc-number">1.</span> <span class="toc-text">Node.js 的 cluster 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#cluster-js"><span class="toc-number">1.1.</span> <span class="toc-text">cluster.js</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#主进程-httpserver"><span class="toc-number">1.2.</span> <span class="toc-text">主进程 httpserver</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#子进程-内部实现"><span class="toc-number">1.3.</span> <span class="toc-text">子进程 内部实现</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#client-通过-tcp-连接向主进程发送请求，那主进程又是如何将请求传递给子进程处理呢？"><span class="toc-number">1.4.</span> <span class="toc-text">client 通过 tcp 连接向主进程发送请求，那主进程又是如何将请求传递给子进程处理呢？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pm2-流程总结"><span class="toc-number"></span> <span class="toc-text">pm2 流程总结</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#主进程在收到-accept-事件时，产生连接-socket，并把它发送给子进程。子进程直接通过该-socket-跟-client-端进行通信"><span class="toc-number">0.0.1.</span> <span class="toc-text">主进程在收到 accept 事件时，产生连接 socket，并把它发送给子进程。子进程直接通过该 socket 跟 client 端进行通信</span></a></li></ol></li></ol></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+  </main>
+  <footer
+  id="footer"
+  class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme"
+>
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+      <span>
+        &copy; 2018 - 2020  Yu Kai
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+      <span
+        >Theme:
+        <a
+          href="https://github.com/kb1000fx/hexo-theme-meadow"
+          rel="noopener"
+          target="_blank"
+          >Meadow</a
+        ></span
+      >
+      
+    </div>
+    <div class="mdui-row">
+      
+    </div>
+  </div>
+</footer>
+
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+<script src="/js/mdui.min.js"></script>
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

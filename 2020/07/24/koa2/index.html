@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+    
+    
+<link rel="stylesheet" href="/css/mdui.min.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            Koa2从入门到精通2 | Chris
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">Chris</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-2">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-2">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/icons/avatar.gif"/>
+                
+            </div>
+            <div class="sidebar-author-name">Yu Kai</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:198897095@qq.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a href="https://yukai1202.github.io" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2020/07/24/koa2/">Koa2从入门到精通2</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2020-07-24
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2020-07-25
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/Nodejs/">Nodejs</a> > <a class="category-link" href="/categories/Nodejs/koa/">koa</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=Koa2从入门到精通2&url=https://yukai1202.github.io/2020/07/24/koa2/&pic=https://yukai1202.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=Koa2从入门到精通2&url=https://yukai1202.github.io/2020/07/24/koa2/&via=Yu Kai" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://yukai1202.github.io/2020/07/24/koa2/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=https://yukai1202.github.io/2020/07/24/koa2/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yukai1202.github.io/2020/07/24/koa2/&title=Koa2从入门到精通2" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Chris&title=Koa2从入门到精通2&summary=&pics=https://yukai1202.github.io/null&url=https://yukai1202.github.io/2020/07/24/koa2/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=https://yukai1202.github.io/2020/07/24/koa2/&text=Koa2从入门到精通2" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/Koa/ >Koa</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h3 id="中间件介绍"><a href="#中间件介绍" class="headerlink" title="中间件介绍"></a>中间件介绍</h3><p>Koa2 中，中间件其实就是一个异步函数，有两个参数，第一个是上下文，第二个是 next 函数，next 会贯穿应用程序的 request-response 生命周期。</p>
+<p>它的执行规则是由外向内，再由内向外，参考上节的图片洋葱模型~<br>我们来分析一下源码，看它是如何实现的。并且手写一个简单版的 koa</p>
+<br>
+
+<h3 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h3><p>先看 koa 的简单例子</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const Koa = require(<span class="string">"koa"</span>);</span><br><span class="line">const app = new Koa();</span><br><span class="line"></span><br><span class="line">app.use(async (ctx, next) =&gt; &#123;</span><br><span class="line">  console.log(1);</span><br><span class="line">  await next();</span><br><span class="line">  console.log(2);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use(async (ctx, next) =&gt; &#123;</span><br><span class="line">  console.log(3);</span><br><span class="line">  await next();</span><br><span class="line">  console.log(4);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use(async (ctx, next) =&gt; &#123;</span><br><span class="line">  console.log(5);</span><br><span class="line">  await next();</span><br><span class="line">  console.log(6);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(3000);</span><br></pre></td></tr></table></figure>
+
+<p>调用结果打印出 1,3,5,6,4,2</p>
+<br>
+开始看源码，打开源码下的 application.js，包含了一个 Application class，它的构造函数内有一个内部变量值是一个数组，这个就是所有中间件最终存放的地方。
+
+<p>因为主要是讲中间件，所以我们简化一下这个 class，简化如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">class Application &#123;</span><br><span class="line">  constructor(options) &#123;</span><br><span class="line">    this.middleware = [];</span><br><span class="line">  &#125;</span><br><span class="line">  listen(...args) &#123;</span><br><span class="line">    const server = http.createServer(this.callback());</span><br><span class="line">    <span class="built_in">return</span> server.listen(...args);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  use(fn) &#123;</span><br><span class="line">    <span class="keyword">if</span> (typeof fn !== <span class="string">"function"</span>)</span><br><span class="line">      throw new TypeError(<span class="string">"middleware must be a function!"</span>);</span><br><span class="line">    <span class="comment"># if (isGeneratorFunction(fn)) &#123;</span></span><br><span class="line">    <span class="comment">#   deprecate(</span></span><br><span class="line">    <span class="comment">#     "Support for generators will be removed in v3. " +</span></span><br><span class="line">    <span class="comment">#       "See the documentation for examples of how to convert old middleware " +</span></span><br><span class="line">    <span class="comment">#       "https://github.com/koajs/koa/blob/master/docs/migration.md"</span></span><br><span class="line">    <span class="comment">#   );</span></span><br><span class="line">    <span class="comment">#   fn = convert(fn);</span></span><br><span class="line">    <span class="comment"># &#125;</span></span><br><span class="line">    this.middleware.push(fn);</span><br><span class="line">    <span class="built_in">return</span> this;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">callback</span></span>() &#123;</span><br><span class="line">    const fn = compose(this.middleware);</span><br><span class="line">    const handleRequest = (req, res) =&gt; &#123;</span><br><span class="line">      const ctx = this.createContext(req, res);</span><br><span class="line">      <span class="built_in">return</span> this.handleRequest(ctx, fn);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> handleRequest;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  handleRequest(ctx, fnMiddleware) &#123;</span><br><span class="line">    const res = ctx.res;</span><br><span class="line">    const onerror = (err) =&gt; ctx.onerror(err);</span><br><span class="line">    <span class="built_in">return</span> fnMiddleware(ctx).catch(onerror);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  createContext(req, res) &#123;</span><br><span class="line">    const ctx = &#123; req, res &#125;;</span><br><span class="line">    <span class="built_in">return</span> &#123; ctx &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个类函数不多，且定义都比较明确，实例化的时候先初始化一个空的数组用来存放中间件，接下来是一个 listen 函数，调用 http 模块创建 Server 传入自定义 callback，然后监听端口。后面是一个我们经常使用的 Use 方法，代码很简单，仅仅是 push 到构造函数中定义的数组。然后后面是一个 callback 函数，核心代码就在这个 compose 函数中，该函数的源码单独定义在 koa-compose 模块中，稍后讲到，然后 callback 返回一个 handleRequest，内部调用自己的定义的 handleRequest，传入上下文和一个 fn。这就是 koa 中间件的核心逻辑。接下来讲下 compose</p>
+<p>打开 compose 源码，下面就一个 index.js，且不包含其他任何模块</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> compose (middleware) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!Array.isArray(middleware)) throw new TypeError(<span class="string">'Middleware stack must be an array!'</span>)</span><br><span class="line">  <span class="keyword">for</span> (const fn of middleware) &#123;</span><br><span class="line">    <span class="keyword">if</span> (typeof fn !== <span class="string">'function'</span>) throw new TypeError(<span class="string">'Middleware must be composed of functions!'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">return</span> <span class="keyword">function</span> (context, next) &#123;</span><br><span class="line">    <span class="built_in">let</span> index = -1</span><br><span class="line">    <span class="built_in">return</span> dispatch(0)</span><br><span class="line">    <span class="keyword">function</span> dispatch (i) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i &lt;= index) <span class="built_in">return</span> Promise.reject(new Error(<span class="string">'next() called multiple times'</span>))</span><br><span class="line">      index = i</span><br><span class="line">      <span class="built_in">let</span> fn = middleware[i]</span><br><span class="line">      <span class="keyword">if</span> (i === middleware.length) fn = next</span><br><span class="line">      <span class="keyword">if</span> (!fn) <span class="built_in">return</span> Promise.resolve()</span><br><span class="line">      try &#123;</span><br><span class="line">        <span class="built_in">return</span> Promise.resolve(fn(context, dispatch.bind(null, i + 1)));</span><br><span class="line">      &#125; catch (err) &#123;</span><br><span class="line">        <span class="built_in">return</span> Promise.reject(err)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该函数内部先循环遍历一遍所有中间件，检查中间件是否都是函数，然后返回一个函数，在该函数内部调用内部定义的 dispatch，从 0 开始，获取第一个中间件，然后调用这个中间件，中间件需要传入两个参数，当前上下文，第二个参数是 next 函数，作者使用 dispatch.bind(null, i + 1)来获取下一个中间价作为当前 next 函数的参数，因此也就是一个异步中间件，支持 await 调用。<br>所以，一个请求进来首先进入 callback 内部的 handleRequest 函数，然后第一步获取上下文，第二步调用 handleRequest 传入上下文和 fn，从 compose 源码可知，fn 是 compose 返回的一个函数，所以在 handleRequest 中，调用 fnMiddleware 传入 ctx，第二个参数没传默认为 undefined。然后进入 compose 返回的函数，在函数内部首先调用 dispatch(0)，因为是普通函数，所以会有变量名提示，进入 dispatch，获取第 1 个中间件函数，然后是一些容错判断。最后调用 Promise.resove()执行第 1 个中间件，我们知道中间件有两个参数 ctx,next，所以第一个参数上下文，第二个则是传入一个 dispatch，参数为(i+1)，也就是 next 参数，因为 dispatch 返回的是一个 Promise.resolve()所以支持 await 调用，这个时候进入用户自己写的第一个中间件代码，执行 await next()，如此反复，到最后去取超过数组长度的 fn，为 undefined，则直接 resolve 返回。在这段代码里有个逻辑判断 i &lt;= index，请求进来这里的 index 设为-1，使用闭包原理，会一直贯穿着这次请求，最后 index 指向最后一个，i 作为局部参数，存在每个 dispatch 内，所以遇到一个中间件两次调用 next，那么 i 肯定是小于等于 index 的。这就是 koa 中间件执行的核心逻辑。</p>
+<p>将上面的两段代码合并，也是一个能简单工作的 koa 啦！</p>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2020/07/25/koa3/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>Koa2从入门到精通3</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2020/07/24/domcontentload/">
+        <span>js中的load 和 domcontentloaded区别</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2020/07/24/koa2/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#中间件介绍"><span class="toc-number">1.</span> <span class="toc-text">中间件介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码分析"><span class="toc-number">2.</span> <span class="toc-text">源码分析</span></a></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+  </main>
+  <footer
+  id="footer"
+  class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme"
+>
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+      <span>
+        &copy; 2018 - 2020  Yu Kai
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+      <span
+        >Theme:
+        <a
+          href="https://github.com/kb1000fx/hexo-theme-meadow"
+          rel="noopener"
+          target="_blank"
+          >Meadow</a
+        ></span
+      >
+      
+    </div>
+    <div class="mdui-row">
+      
+    </div>
+  </div>
+</footer>
+
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+<script src="/js/mdui.min.js"></script>
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

@@ -49,7 +49,7 @@
     
     <title>
         
-            cache | Chris
+            强制缓存和协商缓存 | Chris
         
     </title>
     
@@ -203,7 +203,7 @@
     
     
       <div class="post-header"> 
-  <a class="post-header-title" href="/2020/07/23/cache/">cache</a>
+  <a class="post-header-title" href="/2020/07/23/cache/">强制缓存和协商缓存</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
@@ -211,7 +211,7 @@
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2020-07-23
+      更新于:&nbsp;2020-07-24
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -231,10 +231,10 @@
       <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
       <ul class="mdui-menu" id="share_menu">
         <li class="mdui-menu-item">
-          <a href="http://service.weibo.com/share/share.php?appkey=&title=cache&url=https://yukai1202.github.io/2020/07/23/cache/&pic=https://yukai1202.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=强制缓存和协商缓存&url=https://yukai1202.github.io/2020/07/23/cache/&pic=https://yukai1202.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://twitter.com/intent/tweet?text=cache&url=https://yukai1202.github.io/2020/07/23/cache/&via=Yu Kai" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+          <a href="https://twitter.com/intent/tweet?text=强制缓存和协商缓存&url=https://yukai1202.github.io/2020/07/23/cache/&via=Yu Kai" target="_blank" class="mdui-ripple">分享到 Twitter</a>
         </li>
         <li class="mdui-menu-item">
           <a href="https://www.facebook.com/sharer/sharer.php?u=https://yukai1202.github.io/2020/07/23/cache/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
@@ -243,13 +243,13 @@
           <a href="https://plus.google.com/share?url=https://yukai1202.github.io/2020/07/23/cache/" target="_blank" class="mdui-ripple">分享到 Google+</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yukai1202.github.io/2020/07/23/cache/&title=cache" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yukai1202.github.io/2020/07/23/cache/&title=强制缓存和协商缓存" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Chris&title=cache&summary=&pics=https://yukai1202.github.io/null&url=https://yukai1202.github.io/2020/07/23/cache/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Chris&title=强制缓存和协商缓存&summary=&pics=https://yukai1202.github.io/null&url=https://yukai1202.github.io/2020/07/23/cache/" target="_blank" class="mdui-ripple">分享到 QQ</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://telegram.me/share/url?url=https://yukai1202.github.io/2020/07/23/cache/&text=cache" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+          <a href="https://telegram.me/share/url?url=https://yukai1202.github.io/2020/07/23/cache/&text=强制缓存和协商缓存" target="_blank" class="mdui-ripple">分享到 Telegram</a>
         </li>
       </ul>
     
@@ -261,7 +261,18 @@
   
   
   <div class="mdui-card-content mdui-typo mdui-p-x-4">
-    
+    <blockquote>
+<p>强制缓存</p>
+</blockquote>
+<p>浏览器在请求某一资源时，会先获取该资源缓存的 header 信息，判断是否命中强缓存（cache-control 和 expires 信息），若命中直接从缓存中获取资源信息。cache-constrol 比 expires 优先级更高，且 expires 是 http1.0 的</p>
+<h5 id="cache-control-参数说明"><a href="#cache-control-参数说明" class="headerlink" title="cache-control 参数说明"></a>cache-control 参数说明</h5><p>现在主要使用 cache-control:<br>public : 终端用户和中间代理商等<br>private: 只允许终端用户<br>no-store: 不使用强制缓存或协商缓存<br>no-cache: 使用协商缓存，不使用强制缓存<br>max-age: 不大于多少时间内，都走强制缓存</p>
+<blockquote>
+<p>协商缓存</p>
+</blockquote>
+<p>如果没有命中强缓存，浏览器会发送请求到服务器，请求会携带第一次返回的有关缓存的 header 字段信息（Last-Modifued/If-Modified-Since 和 Etag/If-None-Match），它们是成对出现。<br>然后由服务器根据 header 信息来比对结果是否协商缓存命中。若命中，则服务器返回新的响应 header 信息更新缓存中的对应 header 信息，<br>但是不返回资源内容，它会告知浏览器可以直接从缓存获取；否则返回最新的资源内容。</p>
+<p>last-modified/if-modified-since,（通过时间比对）<br>etag/if-non-match（服务器对资源有一套 hash 算法）</p>
+<p>且 etag 优先级比 last-modified 高</p>
+
   </div>
   <!--文末结束语-->
   
@@ -295,7 +306,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/2020/07/23/cache/" id="toc-header" class="mdui-ripple">文章目录</a>
-        
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#cache-control-参数说明"><span class="toc-number">1.</span> <span class="toc-text">cache-control 参数说明</span></a></li></ol>
       </li>
     </ul>
   </div>
