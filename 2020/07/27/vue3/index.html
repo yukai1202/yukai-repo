@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+    
+    
+<link rel="stylesheet" href="/css/mdui.min.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            vue3.0 组合式API 初探 | Chris
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">Chris</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">Overview</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">About</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-2">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">Home</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">Tags</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">Categories</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">Archives</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">About</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">Night Mode</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-2">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/icons/avatar.gif"/>
+                
+            </div>
+            <div class="sidebar-author-name">Yu Kai</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:198897095@qq.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a href="https://yukai1202.github.io" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">Links</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2020/07/27/vue3/">vue3.0 组合式API 初探</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      Posted on:&nbsp;2020-07-27
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      Edited on:&nbsp;2020-07-27
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      In:&nbsp;
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=vue3.0 组合式API 初探&url=https://yukai1202.github.io/2020/07/27/vue3/&pic=https://yukai1202.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=vue3.0 组合式API 初探&url=https://yukai1202.github.io/2020/07/27/vue3/&via=Yu Kai" target="_blank" class="mdui-ripple">Share to Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://yukai1202.github.io/2020/07/27/vue3/" target="_blank" class="mdui-ripple">Share to Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=https://yukai1202.github.io/2020/07/27/vue3/" target="_blank" class="mdui-ripple">Share to Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yukai1202.github.io/2020/07/27/vue3/&title=vue3.0 组合式API 初探" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Chris&title=vue3.0 组合式API 初探&summary=&pics=https://yukai1202.github.io/null&url=https://yukai1202.github.io/2020/07/27/vue3/" target="_blank" class="mdui-ripple">Share to QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=https://yukai1202.github.io/2020/07/27/vue3/&text=vue3.0 组合式API 初探" target="_blank" class="mdui-ripple">Share to Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <p>Vue3.0 已经出来一段时间了，在 3.0 中提出了一个新的设计，叫组合式 API：<br>一组低侵入式的、函数式的 API，使得我们能够更灵活地「组合」组件的逻辑。<br>我个人理解就是，在页面渲染之前，在一个地方进行数据或函数的组合，并输出到模板。比起 vue2.0 可能更加直观，页面上用了哪些 state 和函数。</p>
+<p>我们一起来看看有哪些变化吧。</p>
+<h3 id="基本范例"><a href="#基本范例" class="headerlink" title="基本范例"></a>基本范例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;button @click=<span class="string">"increment"</span>&gt;</span><br><span class="line">    Count is: &#123;&#123; state.count &#125;&#125;, double is: &#123;&#123; state.double &#125;&#125;</span><br><span class="line">  &lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> &#123; reactive, computed &#125; <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">setup() &#123;</span><br><span class="line"><span class="keyword">const</span> state = reactive(&#123;</span><br><span class="line">count: <span class="number">0</span>,</span><br><span class="line">double: computed(<span class="function"><span class="params">()</span> =&gt;</span> state.count \* <span class="number">2</span>),</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">increment</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        state.count++</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        state,</span><br><span class="line">        increment</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Vue3.0 里面已经没有了 data, methods 等。取而代之的是使用一个 setup 函数封装了包括，data, methods 等。官方解释，是为了更好的逻辑复用与代码组织。<br>用 vue 开发过复杂系统的都知道，随着项目的复杂性增加，内部的 data 定义，methods 定义也变得越来越复杂，如果是从别人那里接手过来的，如果看到一大片 data,methods，估计心里也会有点瑟瑟发抖。</p>
+<h3 id="动机与目的"><a href="#动机与目的" class="headerlink" title="动机与目的"></a>动机与目的</h3><h4 id="更好的逻辑复用与代码组织"><a href="#更好的逻辑复用与代码组织" class="headerlink" title="更好的逻辑复用与代码组织"></a>更好的逻辑复用与代码组织</h4><p>官网总结两点：</p>
+<ol>
+<li>随着功能的增长，复杂组件的代码变得越来越难以阅读和理解。这种情况在开发人员阅读他人编写的代码时尤为常见。根本原因是 Vue 现有的 API 迫使我们通过选项组织代码，但是有的时候通过逻辑关系组织代码更有意义。</li>
+<li>目前缺少一种简洁且低成本的机制来提取和重用多个组件之间的逻辑。</li>
+</ol>
+<h4 id="更好的类型推导"><a href="#更好的类型推导" class="headerlink" title="更好的类型推导"></a>更好的类型推导</h4><p>Vue2.0 在集成 typescript 的时候，主要依靠一个简单的 this 上下文来暴露 property，在使用时有时候会有点棘手。比如 methods 选项下的函数的 this 是指向组件实例的，而不是这个 methods 对象，比如集成过 echarts 的都知道，在事件函数处理中有时候需要通过 this 去获取当前事件的对象，而不是指向组件的 this.</p>
+<h4 id="响应式状态"><a href="#响应式状态" class="headerlink" title="响应式状态"></a>响应式状态</h4><p>vue3.0 里面定义一个响应式状态有两种办法，reactive 和 ref</p>
+<h5 id="reactive"><a href="#reactive" class="headerlink" title="reactive"></a>reactive</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; reactive, watchEffect &#125; <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">const</span> state = reactive(&#123;</span><br><span class="line">  count: <span class="number">0</span>,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">increment</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  state.count++</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> renderContext = &#123;</span><br><span class="line">  state,</span><br><span class="line">  increment,</span><br><span class="line">&#125;</span><br><span class="line">watchEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  # 假设的方法，并不是真实的 API</span><br><span class="line">  renderTemplate(</span><br><span class="line">    <span class="string">`&lt;button @click="increment"&gt;&#123;&#123; state.count &#125;&#125;&lt;/button&gt;`</span>,</span><br><span class="line">    renderContext</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h5><p>使用的是 ref 的例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref, watchEffect &#125; <span class="keyword">from</span> <span class="string">"vue"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> count = ref(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">increment</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  count.value++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> renderContext = &#123;</span><br><span class="line">  count,</span><br><span class="line">  increment,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">watchEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  renderTemplate(</span><br><span class="line">    <span class="string">`&lt;button @click="increment"&gt;&#123;&#123; count &#125;&#125;&lt;/button&gt;`</span>,</span><br><span class="line">    renderContext</span><br><span class="line">  );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="Ref-vs-Reactive"><a href="#Ref-vs-Reactive" class="headerlink" title="Ref vs. Reactive"></a>Ref vs. Reactive</h5><p>1.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 风格 1: 将变量分离</span></span><br><span class="line"><span class="keyword">let</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> y = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updatePosition</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  x = e.pageX;</span><br><span class="line">  y = e.pageY;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// --- 与下面的相比较 ---</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 风格 2: 单个对象</span></span><br><span class="line"><span class="keyword">const</span> pos = &#123;</span><br><span class="line">  x: <span class="number">0</span>,</span><br><span class="line">  y: <span class="number">0</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updatePosition</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  pos.x = e.pageX;</span><br><span class="line">  pos.y = e.pageY;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>如果使用 ref，我们实际上就是将风格 (1) 转换为使用 ref (为了让基础类型值具有响应性) 的更细致的写法。</p>
+</li>
+<li><p>使用 reactive 和风格 (2) 一致。我们只需要通过 reactive 创建这个对象。</p>
+</li>
+</ul>
+<ol start="2">
+<li>而只使用 reactive 的问题是，使用组合函数时必须始终保持对这个所返回对象的引用以保持响应性。这个对象不能被解构或展开：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 组合函数：</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">useMousePosition</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> pos = reactive(&#123;</span><br><span class="line">    x: <span class="number">0</span>,</span><br><span class="line">    y: <span class="number">0</span>,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">return</span> pos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 消费者组件</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    <span class="comment">// 这里会丢失响应性!</span></span><br><span class="line">    <span class="keyword">const</span> &#123; x, y &#125; = useMousePosition();</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      x,</span><br><span class="line">      y,</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这里会丢失响应性!</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      ...useMousePosition(),</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这是保持响应性的唯一办法！</span></span><br><span class="line">    <span class="comment">// 你必须返回 `pos` 本身，并按 `pos.x` 和 `pos.y` 的方式在模板中引用 x 和 y。</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      pos: useMousePosition(),</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>vue3.0 还提供了一个 api toRefs，可以将 reactive 转换成 ref</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">useMousePosition</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> pos = reactive(&#123;</span><br><span class="line">    x: <span class="number">0</span>,</span><br><span class="line">    y: <span class="number">0</span>,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">return</span> toRefs(pos);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// x &amp; y 现在是 ref 形式了!</span></span><br><span class="line"><span class="keyword">const</span> &#123; x, y &#125; = useMousePosition();</span><br></pre></td></tr></table></figure>
+
+<p>接下来一起看下，在 3.0 中怎么去组织代码。</p>
+<h3 id="代码组织"><a href="#代码组织" class="headerlink" title="代码组织"></a>代码组织</h3><p>我们在阅读一些逻辑比较复杂的代码时，很难直接梳理出各个逻辑关注点。你会发现到与各个逻辑关注点相关的代码是分散在各处的。比如：有的方法的定义与所需数据的距离特别远，需要不停来回跳转查看，用官网的图片例子可以说明：</p>
+<img src="/2020/07/27/vue3/2.png" class>
+
+<p>该图片是真实的 Vue CLI UI 文件浏览器的一段代码，该例子包含了，创建文件夹，文件夹导航，搜藏文件夹，隐藏文件夹等，相信阅读和修改这些代码还是比较费时的。</p>
+<p>如果使用 vue3.0 里面的组合式 api，可以抽象出来的逻辑</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">useCreateFolder</span>(<span class="params">openFolder</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 响应式数据</span></span><br><span class="line">  <span class="keyword">const</span> showNewFolder = ref(<span class="literal">false</span>)</span><br><span class="line">  <span class="keyword">const</span> newFolderName = ref(<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 原来的计算属性</span></span><br><span class="line">  <span class="keyword">const</span> newFolderValid = computed(<span class="function"><span class="params">()</span> =&gt;</span> isValidMultiName(newFolderName.value))</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 原来的一个方法</span></span><br><span class="line">  <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">createFolder</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!newFolderValid.value) <span class="keyword">return</span></span><br><span class="line">      <span class="keyword">const</span> result = <span class="keyword">await</span> mutate(&#123;</span><br><span class="line">      mutation: FOLDER_CREATE,</span><br><span class="line">      variables: &#123;</span><br><span class="line">        name: newFolderName.value,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">    openFolder(result.data.folderCreate.path)</span><br><span class="line">    newFolderName.value = <span class="string">''</span></span><br><span class="line">    showNewFolder.value = <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    showNewFolder,</span><br><span class="line">    newFolderName,</span><br><span class="line">    newFolderValid,</span><br><span class="line">    createFolder,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 最后变成这样</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">useCurrentFolderData</span>(<span class="params">networkState</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">useFolderNavigation</span>(<span class="params">&#123; networkState, currentFolderData &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">useFavoriteFolder</span>(<span class="params">currentFolderData</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">useHiddenFolders</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">useCreateFolder</span>(<span class="params">openFolder</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 组合后变成这样</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    <span class="comment">// 网络状态</span></span><br><span class="line">    <span class="keyword">const</span> &#123; networkState &#125; = useNetworkState()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 文件夹状态</span></span><br><span class="line">    <span class="keyword">const</span> &#123; folders, currentFolderData &#125; = useCurrentFolderData(networkState)</span><br><span class="line">    <span class="keyword">const</span> folderNavigation = useFolderNavigation(&#123;</span><br><span class="line">      networkState,</span><br><span class="line">      currentFolderData,</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">const</span> &#123; favoriteFolders, toggleFavorite &#125; = useFavoriteFolders(</span><br><span class="line">      currentFolderData</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">const</span> &#123; showHiddenFolders &#125; = useHiddenFolders()</span><br><span class="line">    <span class="keyword">const</span> createFolder = useCreateFolder(folderNavigation.openFolder)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当前工作目录</span></span><br><span class="line">    resetCwdOnLeave()</span><br><span class="line">    <span class="keyword">const</span> &#123; updateOnCwdChanged &#125; = useCwdUtils()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 实用工具</span></span><br><span class="line">    <span class="keyword">const</span> &#123; slicePath &#125; = usePathUtils()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      networkState,</span><br><span class="line">      folders,</span><br><span class="line">      currentFolderData,</span><br><span class="line">      folderNavigation,</span><br><span class="line">      favoriteFolders,</span><br><span class="line">      toggleFavorite,</span><br><span class="line">      showHiddenFolders,</span><br><span class="line">      createFolder,</span><br><span class="line">      updateOnCwdChanged,</span><br><span class="line">      slicePath,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码的组织就会修改成如下：</p>
+<img src="/2020/07/27/vue3/3.png" class>
+
+<p>再来看一个例子，实时获取鼠标的位置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref, onMounted, onUnmounted &#125; <span class="keyword">from</span> <span class="string">"vue"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">useMousePosition</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> x = ref(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> y = ref(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    x.value = e.pageX;</span><br><span class="line">    y.value = e.pageY;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onMounted(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">"mousemove"</span>, update);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  onUnmounted(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.removeEventListener(<span class="string">"mousemove"</span>, update);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123; x, y &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么在组件中使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useMousePosition &#125; <span class="keyword">from</span> <span class="string">"./mouse"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; x, y &#125; = useMousePosition();</span><br><span class="line">    <span class="comment">// 其他逻辑...</span></span><br><span class="line">    <span class="keyword">return</span> &#123; x, y &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>大家也可以想象如果使用 vue2.0 去实现这个功能，可能需要定义一个 mixin，但是使用起来肯定没有这样清晰和方便。</p>
+<p>好了 vue3.0 就先学到这里。</p>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2020/07/25/koa4/">
+        <span>Koa2从入门到精通4</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2020/07/27/vue3/" id="toc-header" class="mdui-ripple">Table of Contents</a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本范例"><span class="toc-number">1.</span> <span class="toc-text">基本范例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动机与目的"><span class="toc-number">2.</span> <span class="toc-text">动机与目的</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#更好的逻辑复用与代码组织"><span class="toc-number">2.1.</span> <span class="toc-text">更好的逻辑复用与代码组织</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更好的类型推导"><span class="toc-number">2.2.</span> <span class="toc-text">更好的类型推导</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#响应式状态"><span class="toc-number">2.3.</span> <span class="toc-text">响应式状态</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#reactive"><span class="toc-number">2.3.1.</span> <span class="toc-text">reactive</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ref"><span class="toc-number">2.3.2.</span> <span class="toc-text">ref</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Ref-vs-Reactive"><span class="toc-number">2.3.3.</span> <span class="toc-text">Ref vs. Reactive</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码组织"><span class="toc-number">3.</span> <span class="toc-text">代码组织</span></a></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+  </main>
+  <footer
+  id="footer"
+  class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme"
+>
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+      <span>
+        &copy; 2018 - 2020  Yu Kai
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+      <span
+        >Theme:
+        <a
+          href="https://github.com/kb1000fx/hexo-theme-meadow"
+          rel="noopener"
+          target="_blank"
+          >Meadow</a
+        ></span
+      >
+      
+    </div>
+    <div class="mdui-row">
+      
+    </div>
+  </div>
+</footer>
+
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+<script src="/js/mdui.min.js"></script>
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

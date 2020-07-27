@@ -49,7 +49,7 @@
     
     <title>
         
-            tests | Chris
+            Mocha + Chai.js + Istanbul 测试介绍 | Chris
         
     </title>
     
@@ -203,7 +203,7 @@
     
     
       <div class="post-header"> 
-  <a class="post-header-title" href="/2020/07/23/tests/">tests</a>
+  <a class="post-header-title" href="/2020/07/23/tests/">Mocha + Chai.js + Istanbul 测试介绍</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
@@ -211,7 +211,7 @@
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      Edited on:&nbsp;2020-07-23
+      Edited on:&nbsp;2020-07-26
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -231,10 +231,10 @@
       <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
       <ul class="mdui-menu" id="share_menu">
         <li class="mdui-menu-item">
-          <a href="http://service.weibo.com/share/share.php?appkey=&title=tests&url=https://yukai1202.github.io/2020/07/23/tests/&pic=https://yukai1202.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=Mocha + Chai.js + Istanbul 测试介绍&url=https://yukai1202.github.io/2020/07/23/tests/&pic=https://yukai1202.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://twitter.com/intent/tweet?text=tests&url=https://yukai1202.github.io/2020/07/23/tests/&via=Yu Kai" target="_blank" class="mdui-ripple">Share to Twitter</a>
+          <a href="https://twitter.com/intent/tweet?text=Mocha + Chai.js + Istanbul 测试介绍&url=https://yukai1202.github.io/2020/07/23/tests/&via=Yu Kai" target="_blank" class="mdui-ripple">Share to Twitter</a>
         </li>
         <li class="mdui-menu-item">
           <a href="https://www.facebook.com/sharer/sharer.php?u=https://yukai1202.github.io/2020/07/23/tests/" target="_blank" class="mdui-ripple">Share to Facebook</a>
@@ -243,13 +243,13 @@
           <a href="https://plus.google.com/share?url=https://yukai1202.github.io/2020/07/23/tests/" target="_blank" class="mdui-ripple">Share to Google+</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yukai1202.github.io/2020/07/23/tests/&title=tests" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yukai1202.github.io/2020/07/23/tests/&title=Mocha + Chai.js + Istanbul 测试介绍" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Chris&title=tests&summary=&pics=https://yukai1202.github.io/null&url=https://yukai1202.github.io/2020/07/23/tests/" target="_blank" class="mdui-ripple">Share to QQ</a>
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Chris&title=Mocha + Chai.js + Istanbul 测试介绍&summary=&pics=https://yukai1202.github.io/null&url=https://yukai1202.github.io/2020/07/23/tests/" target="_blank" class="mdui-ripple">Share to QQ</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://telegram.me/share/url?url=https://yukai1202.github.io/2020/07/23/tests/&text=tests" target="_blank" class="mdui-ripple">Share to Telegram</a>
+          <a href="https://telegram.me/share/url?url=https://yukai1202.github.io/2020/07/23/tests/&text=Mocha + Chai.js + Istanbul 测试介绍" target="_blank" class="mdui-ripple">Share to Telegram</a>
         </li>
       </ul>
     
@@ -261,7 +261,32 @@
   
   
   <div class="mdui-card-content mdui-typo mdui-p-x-4">
-    
+    <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>测试的重要性不要说大家都知道，而且测试对于查找错误、验证功能和提高软件的总体稳定性非常重要。几乎所有(如果不是全部的话)开发人员都以某种方式测试他们的代码。测试的一种方法是手动运行程序并测试所有函数，以查看是否一切都按预期工作。另一种(也是更好的)方法是编写每次代码更改时都运行的自动化测试。</p>
+<p>废话不多，开始吧。</p>
+<p>首先创建一个新项目。 创建一个空目录并运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">npm init -y</span><br><span class="line"><span class="comment">#安装依赖</span></span><br><span class="line">npm install --save-dev mocha chai</span><br></pre></td></tr></table></figure>
+
+<p>新建一个 math.js</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const math = &#123;&#125;;</span><br><span class="line">math.add = (num1, num2) =&gt; num1 + num2;</span><br><span class="line">math.multiply = (num1, num2) =&gt; num1 * num2;</span><br><span class="line">math.isPositive = (num) =&gt; &#123;</span><br><span class="line">	<span class="keyword">if</span>(num &gt; 0) &#123;</span><br><span class="line">		<span class="built_in">return</span> <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line">module.exports = math;</span><br></pre></td></tr></table></figure>
+
+<p>新建一个目录 test，在 test 下面新建一个 math.test.js</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const expect = require(<span class="string">"chai"</span>).expect;</span><br><span class="line">const math = require(<span class="string">"../math"</span>);</span><br><span class="line">describe(<span class="string">"math.js tests"</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">  describe(<span class="string">"math.add() Test"</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    it(<span class="string">"should equal 2"</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">      const result = math.add(1, 1);</span><br><span class="line">      expect(result).to.equal(2);</span><br><span class="line">    &#125;);</span><br><span class="line">    it(<span class="string">"should equal 4"</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">      const result = math.add(2, 2);</span><br><span class="line">      expect(result).to.equal(4);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  describe(<span class="string">"math.multiply() Test"</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    it(<span class="string">"should equal 3"</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">      const result = math.multiply(3, 1);</span><br><span class="line">      expect(result).to.equal(3);</span><br><span class="line">    &#125;);</span><br><span class="line">    it(<span class="string">"should equal 10"</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">      const result = math.multiply(5, 2);</span><br><span class="line">      expect(result).to.equal(10);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  describe(<span class="string">"math.isPositve() Test"</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    it(<span class="string">"should be positive"</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">      const result = math.isPositive(3);</span><br><span class="line">      expect(result).to.equal(<span class="literal">true</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>然后修改 package.json，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"mocha"</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这时候我们运行 npm test，输出如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; mocha</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  math.js tests</span><br><span class="line">    math.add() Test</span><br><span class="line">      ✓ should equal 2</span><br><span class="line">      ✓ should equal 4</span><br><span class="line">    math.multiply() Test</span><br><span class="line">      ✓ should equal 3</span><br><span class="line">      ✓ should equal 10</span><br><span class="line"></span><br><span class="line">  4 passing (6ms)</span><br></pre></td></tr></table></figure>
+
+<p>如果要生成测试覆盖率，需要安装 Istanbul，不过也可以使用 Istanbul 提供的一个 cli 工具 nyc，使用更加方便</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">npm i -save-dev nyc</span><br></pre></td></tr></table></figure>
+
+<p>修改 package.json</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"mocha"</span>,</span><br><span class="line">    <span class="string">"coverage"</span>: <span class="string">"nyc npm run test"</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行 npm run coverage，输出如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> math.js tests</span><br><span class="line">    math.add() Test</span><br><span class="line">      ✓ should equal 2</span><br><span class="line">      ✓ should equal 4</span><br><span class="line">    math.multiply() Test</span><br><span class="line">      ✓ should equal 3</span><br><span class="line">      ✓ should equal 10</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  4 passing (14ms)</span><br><span class="line"></span><br><span class="line">----------|---------|----------|---------|---------|-------------------</span><br><span class="line">File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line <span class="comment">#s</span></span><br><span class="line">----------|---------|----------|---------|---------|-------------------</span><br><span class="line">All files |      90 |       50 |     100 |    87.5 |</span><br><span class="line"> math.js  |      90 |       50 |     100 |    87.5 | 11</span><br><span class="line">----------|---------|----------|---------|---------|-------------------</span><br></pre></td></tr></table></figure>
+
   </div>
   <!--文末结束语-->
   
@@ -295,7 +320,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/2020/07/23/tests/" id="toc-header" class="mdui-ripple">Table of Contents</a>
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li></ol>
       </li>
     </ul>
   </div>
