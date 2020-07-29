@@ -49,7 +49,7 @@
     
     <title>
         
-            security | Chris
+            web安全相关介绍 | Chris
         
     </title>
     
@@ -203,7 +203,7 @@
     
     
       <div class="post-header"> 
-  <a class="post-header-title" href="/2020/07/23/security/">security</a>
+  <a class="post-header-title" href="/2020/07/23/security/">web安全相关介绍</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
@@ -211,11 +211,11 @@
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      Edited on:&nbsp;2020-07-23
+      Edited on:&nbsp;2020-07-29
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
-      In:&nbsp;
+      In:&nbsp;<a class="category-link" href="/categories/web%E5%AE%89%E5%85%A8/">web安全</a>
     </span>
     
   </div>
@@ -231,10 +231,10 @@
       <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
       <ul class="mdui-menu" id="share_menu">
         <li class="mdui-menu-item">
-          <a href="http://service.weibo.com/share/share.php?appkey=&title=security&url=https://yukai1202.github.io/2020/07/23/security/&pic=https://yukai1202.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=web安全相关介绍&url=https://yukai1202.github.io/2020/07/23/security/&pic=https://yukai1202.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://twitter.com/intent/tweet?text=security&url=https://yukai1202.github.io/2020/07/23/security/&via=Yu Kai" target="_blank" class="mdui-ripple">Share to Twitter</a>
+          <a href="https://twitter.com/intent/tweet?text=web安全相关介绍&url=https://yukai1202.github.io/2020/07/23/security/&via=Yu Kai" target="_blank" class="mdui-ripple">Share to Twitter</a>
         </li>
         <li class="mdui-menu-item">
           <a href="https://www.facebook.com/sharer/sharer.php?u=https://yukai1202.github.io/2020/07/23/security/" target="_blank" class="mdui-ripple">Share to Facebook</a>
@@ -243,13 +243,13 @@
           <a href="https://plus.google.com/share?url=https://yukai1202.github.io/2020/07/23/security/" target="_blank" class="mdui-ripple">Share to Google+</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yukai1202.github.io/2020/07/23/security/&title=security" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yukai1202.github.io/2020/07/23/security/&title=web安全相关介绍" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Chris&title=security&summary=&pics=https://yukai1202.github.io/null&url=https://yukai1202.github.io/2020/07/23/security/" target="_blank" class="mdui-ripple">Share to QQ</a>
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Chris&title=web安全相关介绍&summary=&pics=https://yukai1202.github.io/null&url=https://yukai1202.github.io/2020/07/23/security/" target="_blank" class="mdui-ripple">Share to QQ</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://telegram.me/share/url?url=https://yukai1202.github.io/2020/07/23/security/&text=security" target="_blank" class="mdui-ripple">Share to Telegram</a>
+          <a href="https://telegram.me/share/url?url=https://yukai1202.github.io/2020/07/23/security/&text=web安全相关介绍" target="_blank" class="mdui-ripple">Share to Telegram</a>
         </li>
       </ul>
     
@@ -261,7 +261,169 @@
   
   
   <div class="mdui-card-content mdui-typo mdui-p-x-4">
-    
+    <h3 id="XSS-攻击漏洞"><a href="#XSS-攻击漏洞" class="headerlink" title="XSS 攻击漏洞"></a>XSS 攻击漏洞</h3><p>XSS Prevention Rules</p>
+<ul>
+<li><p>RULE #0 - Never Insert Untrusted Data Except in Allowed Locations</p>
+</li>
+<li><p>RULE #1 - HTML Encode Before Inserting Untrusted Data into HTML Element Content</p>
+</li>
+<li><p>RULE #2 - Attribute Encode Before Inserting Untrusted Data into HTML Common Attributes</p>
+</li>
+<li><p>RULE #3 - JavaScript Encode Before Inserting Untrusted Data into JavaScript Data Values</p>
+<ul>
+<li><p>RULE #3.1 - HTML Encode JSON values in an HTML context and read the data with JSON.parse<br>Ensure returned Content-Type header is application/json and not text/html。eg：</p>
+<p>Bad response<br>HTTP/1.1 200<br>Date: Wed, 06 Feb 2013 10:28:54 GMT<br>Server: Microsoft-IIS/7.5….<br>Content-Type: text/html; charset=utf-8 &lt;– bad<br>….<br>Content-Length: 373<br>Keep-Alive: timeout=5, max=100<br>Connection: Keep-Alive<br>{“Message”:”No HTTP resource was found that matches the request URI ‘dev.net.ie/api/pay/.html?HouseNumber=9&amp;AddressLine<br>=The+Gardens<script><code>alert(1)</code></script>&amp;AddressLine2=foxlodge+woods&amp;TownName=Meath’.”,”MessageDetail”:”No type was found<br>that matches the controller named ‘pay’.”} &lt;– this script will pop!</p>
+<p>Good HTTP response:<br>HTTP/1.1 200<br>Date: Wed, 06 Feb 2013 10:28:54 GMT<br>Server: Microsoft-IIS/7.5….<br>Content-Type: application/json; charset=utf-8 &lt;–good<br>…..</p>
+<p>// Do not</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// Do NOT do this without encoding the data with one of the techniques listed below.</span></span><br><span class="line"><span class="keyword">var</span> initData = &lt;%= data.to_json %&gt;;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>//good</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"init_data"</span> style=<span class="string">"display: none"</span>&gt;</span><br><span class="line">&lt;%= html_encode(data.to_json) %&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>RULE #4 - CSS Encode And Strictly Validate Before Inserting Untrusted Data into HTML Style Property Values<br>css can also have xss,</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123; background-url : <span class="string">"javascript:alert(1)"</span>; &#125; <span class="comment">// and all other URLs</span></span><br><span class="line">&#123; text-size: <span class="string">"expression(alert('XSS'))"</span>; &#125; <span class="comment">// only in IE</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>RULE #5 - URL Encode Before Inserting Untrusted Data into HTML URL Parameter Values<br>// do this</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">String</span> userURL = request.getParameter( <span class="string">"userURL"</span> )</span><br><span class="line">boolean isValidURL = Validator.IsValidURL(userURL, <span class="number">255</span>);</span><br><span class="line"><span class="keyword">if</span> (isValidURL) &#123;</span><br><span class="line">&lt;a href=<span class="string">"&lt;%=encoder.encodeForHTMLAttribute(userURL)%&gt;"</span>&gt;link&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>RULE #6 - Sanitize HTML Markup with a Library Designed for the Job<br>If your application handles markup – untrusted input that is supposed to contain HTML.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- HtmlSanitizer:</span><br><span class="line">  <span class="keyword">var</span> sanitizer = <span class="keyword">new</span> HtmlSanitizer();</span><br><span class="line">  sanitizer.AllowedAttributes.Add(<span class="string">"class"</span>);</span><br><span class="line">  <span class="keyword">var</span> sanitized = sanitizer.Sanitize(html);</span><br><span class="line">- Other Sanitize</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>RULE #7 - Avoid JavaScript URLs</p>
+</li>
+<li><p>RULE #8 - Prevent DOM-based XSS</p>
+</li>
+</ul>
+<p>And</p>
+<ul>
+<li><p>Bonus Rule #1: Use HTTPOnly cookie flag</p>
+</li>
+<li><p>Bonus Rule #2: Implement Content Security Policy</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Content-Security-Policy: default-src: <span class="string">'self'</span>; script-src: <span class="string">'self'</span> static.domain.tld</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Bonus Rule #3: Use an Auto-Escaping Template System</p>
+</li>
+<li><p>Bonus Rule #4: Properly use modern JS frameworks</p>
+<table>
+<thead>
+<tr>
+<th>JavaScript framework</th>
+<th align="center">Dangerous methods / props</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Angular (2+)</td>
+<td align="center">bypassSecurityTrust</td>
+</tr>
+<tr>
+<td>React</td>
+<td align="center">dangerouslySetInnerHTML</td>
+</tr>
+<tr>
+<td>Vue (2+)</td>
+<td align="center">v-html</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="XSS-Prevention-Rules-Summary"><a href="#XSS-Prevention-Rules-Summary" class="headerlink" title="XSS Prevention Rules Summary"></a>XSS Prevention Rules Summary</h3><p><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#XSS_Prevention_Rules" target="_blank" rel="noopener">参考</a></p>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Context</th>
+<th>Code Sample</th>
+<th>Defense</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td>HTML Body</td>
+<td><code>&lt;span&gt;UNTRUSTED DATA &lt;/span&gt;</code></td>
+<td>HTML Entity Encoding (rule #1).</td>
+</tr>
+<tr>
+<td>String</td>
+<td>Safe HTML Attributes</td>
+<td><code>&lt;input type="text" name="fname" value="UNTRUSTED DATA "&gt;</code></td>
+<td>Aggressive HTML Entity Encoding (rule #2), Only place untrusted data into a whitelist of safe attributes (listed below), Strictly validate unsafe attributes such as background, ID and name.</td>
+</tr>
+<tr>
+<td>String</td>
+<td>GET Parameter</td>
+<td><code>&lt;a href="/site/search?value=UNTRUSTED DATA "&gt;clickme&lt;/a&gt;</code></td>
+<td>URL Encoding (rule #5).</td>
+</tr>
+<tr>
+<td>String</td>
+<td>Untrusted URL in a SRC or HREF attribute</td>
+<td><code>&lt;a href="UNTRUSTED URL "&gt;clickme&lt;/a&gt; &lt;iframe src="UNTRUSTED URL " /&gt;</code></td>
+<td>Canonicalize input, URL Validation, Safe URL verification, Whitelist http and HTTPS URLs only (Avoid the JavaScript Protocol to Open a new Window), Attribute encoder.</td>
+</tr>
+<tr>
+<td>String</td>
+<td>CSS Value</td>
+<td><code>html &lt;div style="width: UNTRUSTED DATA ;"&gt;Selection&lt;/div&gt;</code></td>
+<td>Strict structural validation (rule #4), CSS Hex encoding, Good design of CSS Features.</td>
+</tr>
+<tr>
+<td>String</td>
+<td>JavaScript Variable</td>
+<td><code>&lt;script&gt;var currentValue='UNTRUSTED DATA ';&lt;/script&gt; &lt;script&gt;someFunction('UNTRUSTED DATA ');&lt;/script&gt;</code></td>
+<td>Ensure JavaScript variables are quoted, JavaScript Hex Encoding, JavaScript Unicode Encoding, Avoid backslash encoding (<code>\"</code> or <code>\'</code> or <code>\\</code>).</td>
+</tr>
+<tr>
+<td>HTML</td>
+<td>HTML Body</td>
+<td><code>&lt;div&gt;UNTRUSTED HTML&lt;/div&gt;</code></td>
+<td>HTML Validation (JSoup, AntiSamy, HTML Sanitizer...).</td>
+</tr>
+<tr>
+<td>String</td>
+<td>DOM XSS</td>
+<td><code>&lt;script&gt;document.write("UNTRUSTED INPUT: " + document.location.hash );&lt;script/&gt;</code></td>
+<td><a href="DOM_based_XSS_Prevention_Cheat_Sheet.html">DOM based XSS Prevention Cheat Sheet</a></td>
+</tr>
+</tbody>
+</table>
+
+<p>Safe HTML Attributes include: align, alink, alt, bgcolor, border, cellpadding, cellspacing, class, color, cols, colspan, coords, dir, face, height, hspace, ismap, lang, marginheight, marginwidth, multiple, nohref, noresize, noshade, nowrap, ref, rel, rev, rows, rowspan, scrolling, shape, span, summary, tabindex, title, usemap, valign, value, vlink, vspace, width.</p>
+<h3 id="Output-Encoding-Rules-Summary"><a href="#Output-Encoding-Rules-Summary" class="headerlink" title="Output Encoding Rules Summary"></a>Output Encoding Rules Summary</h3><table>
+<thead>
+<tr>
+<th>Encoding Type</th>
+<th>Encoding Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTML Entity Encoding</td>
+<td>Convert <code>&amp;</code> to <code>&amp;amp;</code>, Convert <code>&lt;</code> to <code>&amp;lt;</code>, Convert <code>&gt;</code> to <code>&amp;gt;</code>, Convert <code>"</code> to <code>&amp;quot;</code>, Convert <code>'</code> to <code>&amp;#x27;</code>, Convert <code>/</code> to <code>&amp;#x2F;</code></td>
+</tr>
+<tr>
+<td>HTML Attribute Encoding</td>
+<td>Except for alphanumeric characters, encode all characters with the HTML Entity <code>&amp;#xHH;</code> format, including spaces. (<strong>HH</strong> = Hex Value)</td>
+</tr>
+<tr>
+<td>URL Encoding</td>
+<td>Standard percent encoding, see <a href="https://www.w3schools.com/tags/ref_urlencode.asp" target="_blank" rel="noopener">here</a>. URL encoding should only be used to encode parameter values, not the entire URL or path fragments of a URL.</td>
+</tr>
+<tr>
+<td>JavaScript Encoding</td>
+<td>Except for alphanumeric characters, encode all characters with the <code>\uXXXX</code> unicode encoding format (<strong>X</strong> = Integer).</td>
+</tr>
+<tr>
+<td>CSS Hex Encoding</td>
+<td>CSS encoding supports <code>\XX</code> and <code>\XXXXXX</code>. Using a two character encode can cause problems if the next character continues the encode sequence. There are two solutions (a) Add a space after the CSS encode (will be ignored by the CSS parser) (b) use the full amount of CSS encoding possible by zero padding the value.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="文件上传下载漏洞"><a href="#文件上传下载漏洞" class="headerlink" title="文件上传下载漏洞"></a>文件上传下载漏洞</h3><h3 id="敏感信息泄露漏洞"><a href="#敏感信息泄露漏洞" class="headerlink" title="敏感信息泄露漏洞"></a>敏感信息泄露漏洞</h3><h3 id="CSRF-漏洞"><a href="#CSRF-漏洞" class="headerlink" title="CSRF 漏洞"></a>CSRF 漏洞</h3><h3 id="越权漏洞"><a href="#越权漏洞" class="headerlink" title="越权漏洞"></a>越权漏洞</h3><h3 id="水平越权测试"><a href="#水平越权测试" class="headerlink" title="水平越权测试"></a>水平越权测试</h3><h3 id="垂直越权测试"><a href="#垂直越权测试" class="headerlink" title="垂直越权测试"></a>垂直越权测试</h3><p>###</p>
+
   </div>
   <!--文末结束语-->
   
@@ -295,7 +457,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/2020/07/23/security/" id="toc-header" class="mdui-ripple">Table of Contents</a>
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#XSS-攻击漏洞"><span class="toc-number">1.</span> <span class="toc-text">XSS 攻击漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XSS-Prevention-Rules-Summary"><span class="toc-number">2.</span> <span class="toc-text">XSS Prevention Rules Summary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output-Encoding-Rules-Summary"><span class="toc-number">3.</span> <span class="toc-text">Output Encoding Rules Summary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件上传下载漏洞"><span class="toc-number">4.</span> <span class="toc-text">文件上传下载漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#敏感信息泄露漏洞"><span class="toc-number">5.</span> <span class="toc-text">敏感信息泄露漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSRF-漏洞"><span class="toc-number">6.</span> <span class="toc-text">CSRF 漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#越权漏洞"><span class="toc-number">7.</span> <span class="toc-text">越权漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#水平越权测试"><span class="toc-number">8.</span> <span class="toc-text">水平越权测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垂直越权测试"><span class="toc-number">9.</span> <span class="toc-text">垂直越权测试</span></a></li></ol>
       </li>
     </ul>
   </div>
