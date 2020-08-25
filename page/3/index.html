@@ -1,384 +1,149 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    
-    <meta name="renderer" content="webkit"/>
-    <meta name="force-rendering" content="webkit"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
-    
-    
-        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
-        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
-    
-    
-    
-        <link rel="shortcut icon" href="/icons/favicon.ico">
-    
-    
-    
-<link rel="stylesheet" href="/css/mdui.min.css">
-<link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" href="/css/iconfont.css">
-
-    
-    
-
-    
-        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-    
-        <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        
-            load: ['[tex]/mhchem'],
-        
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        
-            packages: {'[+]': ['mhchem']},
-        
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
+<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content=""><meta name="keywords" content=""><meta name="author" content="Yu Kai"><meta name="copyright" content="Yu Kai"><title>Ken</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
   }
-</script>
-          
-
-
-    
-    
-    <title>
-          
-            Chris
-        
-    </title>
-    
-    
-<meta name="generator" content="Hexo 4.2.1"></head>
-<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
-  
-  <header class="mdui-appbar mdui-appbar-fixed">
-  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
-    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
-    <a href="/" class="mdui-typo-headline">Chris</a>
-    <a href="/" class="header-subtitle mdui-typo-headline"></a>
-    <div class="mdui-toolbar-spacer"></div>
-    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
-  </div>
-</header>
-
-<div class="mdui-dialog" id="search">
-  
-    <div class="search-form">
-      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
-    </div>
-    <div class="search-result" data-resource="/search.xml"></div>
-  
-</div>
-
-  <aside id="sidebar" class="mdui-drawer">
-    <div class="mdui-tab" mdui-tab>
-        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">Overview</a>
-        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">About</a>
-    </div>
-
-    
-    <div id="sidebar-tab1" class="mdui-p-a-2">
-        <div class="mdui-list">
-            
-                
-                <a href="/" class="mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-home"></i>
-                    </div>
-                    <div class="mdui-list-item-content">Home</div>
-                </a>
-            
-                
-                <a href="/tags/" class="mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-bookmark"></i>
-                    </div>
-                    <div class="mdui-list-item-content">Tags</div>
-                </a>
-            
-                
-                <a href="/categories/" class="mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-folder"></i>
-                    </div>
-                    <div class="mdui-list-item-content">Categories</div>
-                </a>
-            
-                
-                <a href="/archives/" class="mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-archive"></i>
-                    </div>
-                    <div class="mdui-list-item-content">Archives</div>
-                </a>
-            
-                
-                <a href="/tools/" class="mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-tools"></i>
-                    </div>
-                    <div class="mdui-list-item-content">工具箱</div>
-                </a>
-            
-                
-                <a href="/about/" class="mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-user"></i>
-                    </div>
-                    <div class="mdui-list-item-content">About</div>
-                </a>
-            
-            <div class="mdui-list-item mdui-ripple">
-                <div class="mdui-list-item-icon">
-                    <i class="iconfont icon-moon"></i>
-                </div>
-                <div class="mdui-list-item-content">Night Mode</div>
-                <label class="mdui-switch" id="darkmode">
-                  <input type="checkbox" id="nightmode_switch"/>
-                  <i class="mdui-switch-icon"></i>
-                </label>
-            </div>           
-        </div>
-    </div>
-
-    
-    <div id="sidebar-tab2" class="mdui-p-a-2">
-        <div class="sidebar-overview">
-            <div class="sidebar-avatar">
-                
-                    <img src="/icons/avatar.gif"/>
-                
-            </div>
-            <div class="sidebar-author-name">Yu Kai</div>
-            <div class="sidebar-description"></div>
-        </div>
-        <div class="sidebar-links">
-            
-                
-                <div class="mdui-chip">
-                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
-                    <a href="mailto:198897095@qq.com" class="mdui-chip-title">E-Mail</a>
-                </div>
-            
-                
-                <div class="mdui-chip">
-                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
-                    <a href="https://yukai1202.github.io" class="mdui-chip-title">GitHub</a>
-                </div>
-            
-        </div>
-        <ul class="mdui-list" mdui-collapse="{accordion: true}">
-            <li class="mdui-collapse-item">
-                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-link"></i>
-                    </div>
-                    <div class="mdui-list-item-content">Links</div>
-                    <div class="mdui-collapse-item-arrow">
-                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
-                    </div>
-                </div>
-                <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
-                    
-                </ul>
-            </li>
-        </ul>
-
-    </div>
-
-    <div class="mdui-divider"></div>
-    
-    
-</aside>
-  
-  <main id="main-contain" class="mdui-container mdui-m-t-5">
-    
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2020/07/23/babel/">babel入门到精通</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      Posted on:&nbsp;2020-07-23
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      Edited on:&nbsp;2020-07-26
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      In:&nbsp;<a class="category-link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a> > <a class="category-link" href="/categories/web%E5%89%8D%E7%AB%AF/babel/">babel</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="tag-line-space"></div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h3 id="什么是-Babel"><a href="#什么是-Babel" class="headerlink" title="什么是 Babel"></a>什么是 Babel</h3><p>Babel 是一个 javascript 编译器。主要是将 ECMAScript 2015+ 的代码转换成向后兼容的代码，或者兼容老的浏览器及环境。<br>主要有三个步骤，Babel 解析成 AST，然后插件更改 AST，最后由 Babel 输出代码</p>
+} </script><meta name="generator" content="Hexo 4.2.1"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">Yu Kai</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">28</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">1</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Ken</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="site-info"><div id="site-title">Ken</div><div id="site-sub-title"></div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/07/23/eslint/">eslint</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-07-23</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/web%E5%89%8D%E7%AB%AF/eslint/">eslint</a></span><div class="content"><p><a href="https://eslint.bootcss.com/docs/user-guide/configuring" target="_blank" rel="noopener">入门指南</a></p>
+<p>eslint 引入主要是为了 统一代码风格，预先检查错误。<br>一些常用属性介绍：</p>
+<p>extends 配置预先设置的规则，</p>
+<p>rules 自定义引入规，例如： “no-console”:’off’， 一般有三个参数选择 off、warn 和 error。<br>‘indent’: [ ‘error’, 2 ]<br>‘quotes’: [ ‘error’, ‘single’ ],</p>
+<p>overrides</p>
+<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  <span class="string">"extends"</span>: [<span class="string">"eslint:recommended"</span>], <span class="comment"># airbnb, all</span></span><br><span class="line">  <span class="string">"rules"</span>: &#123;</span><br><span class="line">    // <span class="built_in">enable</span> additional rules</span><br><span class="line">    <span class="string">"indent"</span>: [<span class="string">"error"</span>, 4],</span><br><span class="line">    <span class="string">"linebreak-style"</span>: [<span class="string">"error"</span>, <span class="string">"unix"</span>],</span><br><span class="line">    <span class="string">"quotes"</span>: [<span class="string">"error"</span>, <span class="string">"double"</span>],</span><br><span class="line">    <span class="string">"semi"</span>: [<span class="string">"error"</span>, <span class="string">"always"</span>],</span><br><span class="line"></span><br><span class="line">    // override default options <span class="keyword">for</span> rules from base configurations</span><br><span class="line">    <span class="string">"comma-dangle"</span>: [<span class="string">"error"</span>, <span class="string">"always"</span>],</span><br><span class="line">    <span class="string">"no-cond-assign"</span>: [<span class="string">"error"</span>, <span class="string">"always"</span>],</span><br><span class="line"></span><br><span class="line">    // <span class="built_in">disable</span> rules from base configurations</span><br><span class="line">    <span class="string">"no-console"</span>: <span class="string">"off"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"overrides"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"files"</span>: [<span class="string">"*.md"</span>],</span><br><span class="line">        <span class="string">"processor"</span>: <span class="string">"a-plugin/markdown"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"files"</span>: [<span class="string">"**/*.md/*.js"</span>],</span><br><span class="line">        <span class="string">"rules"</span>: &#123;</span><br><span class="line">            <span class="string">"strict"</span>: <span class="string">"off"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/07/23/cache/">强制缓存和协商缓存</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-07-23</time><div class="content"><blockquote>
+<p>强制缓存</p>
+</blockquote>
+<p>浏览器在请求某一资源时，会先获取该资源缓存的 header 信息，判断是否命中强缓存（cache-control 和 expires 信息），若命中直接从缓存中获取资源信息。cache-constrol 比 expires 优先级更高，且 expires 是 http1.0 的</p>
+<h5 id="cache-control-参数说明"><a href="#cache-control-参数说明" class="headerlink" title="cache-control 参数说明"></a>cache-control 参数说明</h5><p>现在主要使用 cache-control:<br>public : 终端用户和中间代理商等<br>private: 只允许终端用户<br>no-store: 不使用强制缓存或协商缓存<br>no-cache: 使用协商缓存，不使用强制缓存<br>max-age: 不大于多少时间内，都走强制缓存</p>
+<blockquote>
+<p>协商缓存</p>
+</blockquote>
+<p>如果没有命中强缓存，浏览器会发送请求到服务器，请求会携带第一次返回的有关缓存的 header 字段信息（Last-Modifued/If-Modified-Since 和 Etag/If-None-Match），它们是成对出现。<br>然后由服务器根据 header 信息来比对结果是否协商缓存命中。若命中，则服务器返回新的响应 header 信息更新缓存中的对应 header 信息，<br>但是不返回资源内容，它会告知浏览器可以直接从缓存获取；否则返回最新的资源内容。</p>
+<p>last-modified/if-modified-since,（通过时间比对）<br>etag/if-non-match（服务器对资源有一套 hash 算法）</p>
+<p>且 etag 优先级比 last-modified 高</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/07/23/browser/">browser</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-07-23</time><div class="content"></div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/07/23/babel/">babel入门到精通</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-07-23</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/web%E5%89%8D%E7%AB%AF/babel/">babel</a></span><div class="content"><h3 id="什么是-Babel"><a href="#什么是-Babel" class="headerlink" title="什么是 Babel"></a>什么是 Babel</h3><p>Babel 是一个 javascript 编译器。主要是将 ECMAScript 2015+ 的代码转换成向后兼容的代码，或者兼容老的浏览器及环境。<br>主要有三个步骤，Babel 解析成 AST，然后插件更改 AST，最后由 Babel 输出代码</p>
 <p>Babel 主要能做如下事情：</p>
 <ul>
 <li>转换语法(Transform syntax)</li>
-<li>补充浏览器...
-          
-          </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2020/07/23/babel/">Read More</a>
-        </div>
-      </div>
-    </article>
+<li>补充浏览器的不支持的语法 Polyfill features that are missing in your target environment (through @babel/polyfill)</li>
+<li>源代码转换 Source code transformations (codemods)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// Babel Input: ES2015 arrow <span class="keyword">function</span></span><br><span class="line">[1, 2, 3].map((n) =&gt; n + 1);</span><br><span class="line"></span><br><span class="line">// Babel Output: ES5 equivalent</span><br><span class="line">[1, 2, 3].map(<span class="keyword">function</span>(n) &#123;</span><br><span class="line">  <span class="built_in">return</span> n + 1;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2020/07/23/optimize/">optimize</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      Posted on:&nbsp;2020-07-23
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      Edited on:&nbsp;2020-07-23
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      In:&nbsp;
-    </span>
-    
-  </div>
-</div>   
-    
+<h3 id="JSX-and-React-支持"><a href="#JSX-and-React-支持" class="headerlink" title="JSX and React 支持"></a>JSX and React 支持</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">npm install --save-dev @babel/preset-react</span><br></pre></td></tr></table></figure>
 
+<h3 id="flow-支持"><a href="#flow-支持" class="headerlink" title="flow 支持"></a>flow 支持</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">npm install --save-dev @babel/preset-flow</span><br></pre></td></tr></table></figure>
 
+<h3 id="babel-例子"><a href="#babel-例子" class="headerlink" title="babel 例子"></a>babel 例子</h3><ol>
+<li>首先需要安装依赖包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">npm install --save-dev @babel/core @babel/cli @babel/preset-env</span><br><span class="line">npm install --save @babel/polyfill</span><br></pre></td></tr></table></figure>
 
-      
-      
-  <div class="tag-line-space"></div>
+<ol start="2">
+<li>在更目录下新建一个 babel.config.json<br>下面的内容可以根据需求修改，presets 是预先设置包含一系列插件，plugins 是单个插件可以只针对某个语法编译。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"@babel/env"</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">"targets"</span>: &#123;</span><br><span class="line">          <span class="string">"edge"</span>: <span class="string">"17"</span>,</span><br><span class="line">          <span class="string">"firefox"</span>: <span class="string">"60"</span>,</span><br><span class="line">          <span class="string">"chrome"</span>: <span class="string">"67"</span>,</span><br><span class="line">          <span class="string">"safari"</span>: <span class="string">"11.1"</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">"useBuiltIns"</span>: <span class="string">"usage"</span>,</span><br><span class="line">        <span class="string">"corejs"</span>: <span class="string">"3.6.4"</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ],</span><br><span class="line">  plugins: [<span class="string">'@babel/plugin-transform-arrow-functions'</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            
-          
-          </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2020/07/23/optimize/">Read More</a>
-        </div>
-      </div>
-    </article>
+<p>useBuiltIns，官方说法：when set to “usage” will practically apply the last optimization mentioned above where you only include the polyfills you need。 也就是说使用 usage，编译后的代码只会加载你代码中所需要的 polyfills</p>
+<ol start="3">
+<li>运行如下代码，会编译你在 src 下的代码，并输出到 lib 目录，该命令是@babel/cli 中的</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">./node_modules/.bin/babel src --out-dir lib</span><br><span class="line"></span><br><span class="line"><span class="comment">#或者指定插件</span></span><br><span class="line"></span><br><span class="line">./node_modules/.bin/babel src --out-dir lib --plugins=@babel/plugin-transform-arrow-functions</span><br></pre></td></tr></table></figure>
 
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2020/07/23/nginx/">nginx常用配置</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      Posted on:&nbsp;2020-07-23
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      Edited on:&nbsp;2020-07-24
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      In:&nbsp;<a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/">服务器配置</a>
-    </span>
-    
-  </div>
-</div>   
-    
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># before</span></span><br><span class="line">Promise.resolve().finally();</span><br><span class="line"></span><br><span class="line"><span class="comment"># after</span></span><br><span class="line">require(<span class="string">"core-js/modules/es.promise.finally"</span>);</span><br><span class="line">Promise.resolve().finally();</span><br></pre></td></tr></table></figure>
 
+<h3 id="babel-中的工具或插件"><a href="#babel-中的工具或插件" class="headerlink" title="babel 中的工具或插件"></a>babel 中的工具或插件</h3><blockquote>
+<p>@babel/parser</p>
+</blockquote>
+<p>生成 AST，<a href="https://babeljs.io/docs/en/babel-parser" target="_blank" rel="noopener">参考</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var parser = require(<span class="string">"@babel/parser"</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> v = parser.parse(<span class="string">"var a = 123;"</span>, &#123;</span><br><span class="line">  // parse <span class="keyword">in</span> strict mode and allow module declarations</span><br><span class="line">  sourceType: <span class="string">"module"</span>,</span><br><span class="line"></span><br><span class="line">  plugins: [</span><br><span class="line">    // <span class="built_in">enable</span> jsx and flow syntax</span><br><span class="line">    // <span class="string">"jsx"</span>,</span><br><span class="line">    // <span class="string">"flow"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
+<p>除了 parse，还有如下方法：</p>
+<ul>
+<li>parseSync</li>
+<li>parseAsync</li>
+</ul>
+<blockquote>
+<p>@babel/core</p>
+</blockquote>
+<p>转换 AST</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var babel = require(<span class="string">"@babel/core"</span>);</span><br><span class="line">babel.transform(code, options, <span class="keyword">function</span>(err, result) &#123;</span><br><span class="line">  result; // =&gt; &#123; code, map, ast &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-      
-      
-  <div class="tag-line-space"></div>
+<p><a href="https://babeljs.io/docs/en/options" target="_blank" rel="noopener">options</a></p>
+<p>除了 transform，还有如下方法</p>
+<ul>
+<li>transformAsync</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">babel.transformAsync(<span class="string">"code();"</span>, options).<span class="keyword">then</span>(result =&gt; &#123;</span><br><span class="line">  result.code;</span><br><span class="line">  result.map;</span><br><span class="line">  result.ast;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h2 id="什么是-Nginx"><a href="#什么是-Nginx" class="headerlink" title="什么是 Nginx"></a>什么是 Nginx</h2><p>Nginx (engine x) 是一个高性能的 HTTP 和反向代理 web 服务器，同时也提供了 IMAP/POP3/SMTP 服务。</p>
+<ul>
+<li>transformSync</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var result = babel.transformSync(<span class="string">"code();"</span>, options);</span><br><span class="line">result.code;</span><br><span class="line">result.map;</span><br><span class="line">result.ast;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>transformFile</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">babel.transformFile(<span class="string">"filename.js"</span>, options, <span class="keyword">function</span> (err, result) &#123;</span><br><span class="line">  result; // =&gt; &#123; code, map, ast &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>transformFileSync<br>babel.transformFileSync(“filename.js”, options).code;</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>transformFileAsync<br>babel.transformFileAsync(“filename.js”, options).then(result =&gt; {<br>result.code;<br>});</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>transformFromAst</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const sourceCode = <span class="string">"if (true) return;"</span>;</span><br><span class="line">const parsedAst = babel.parse(sourceCode, &#123; parserOpts: &#123; allowReturnOutsideFunction: <span class="literal">true</span> &#125; &#125;);</span><br><span class="line">babel.transformFromAst(parsedAst, sourceCode, options, <span class="keyword">function</span>(err, result) &#123;</span><br><span class="line">  const &#123; code, map, ast &#125; = result;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>transformFromAstSync</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const sourceCode = <span class="string">"if (true) return;"</span>;</span><br><span class="line">const parsedAst = babel.parse(sourceCode, &#123; parserOpts: &#123; allowReturnOutsideFunction: <span class="literal">true</span> &#125; &#125;);</span><br><span class="line">const &#123; code, map, ast &#125; = babel.transformFromAstSync(parsedAst, sourceCode, options);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>transformFromAstAsync</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const sourceCode = <span class="string">"if (true) return;"</span>;</span><br><span class="line">babel.parseAsync(sourceCode, &#123; parserOpts: &#123; allowReturnOutsideFunction: <span class="literal">true</span> &#125; &#125;)</span><br><span class="line">  .<span class="keyword">then</span>(parsedAst =&gt; &#123;</span><br><span class="line">    <span class="built_in">return</span> babel.transformFromAstAsync(parsedAst, sourceCode, options);</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="keyword">then</span>((&#123; code, map, ast &#125;) =&gt; &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>@babel/generator</p>
+</blockquote>
+<p>注意如过要以 nodejs 运行，import 会提示 unexpected identifier，需要安装 babel-node，使用 babel-node idnex.js 来运行<br>生成目标代码，<a href="https://babeljs.io/docs/en/babel-generator" target="_blank" rel="noopener">参考</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev @babel/generator</span><br><span class="line"></span><br><span class="line">import &#123;parse&#125; from <span class="string">'@babel/parser'</span>;</span><br><span class="line">import generate from <span class="string">'@babel/generator'</span>;</span><br><span class="line"></span><br><span class="line">const code = <span class="string">'class Example &#123;&#125;'</span>;</span><br><span class="line">const ast = parse(code);</span><br><span class="line"></span><br><span class="line">const output = generate(ast, &#123; /* options */ &#125;, code);</span><br></pre></td></tr></table></figure>
+
+<p>多个文件用法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import &#123;parse&#125; from <span class="string">'@babel/parser'</span>;</span><br><span class="line">import generate from <span class="string">'@babel/generator'</span>;</span><br><span class="line"></span><br><span class="line">const a = <span class="string">'var a = 1;'</span>;</span><br><span class="line">const b = <span class="string">'var b = 2;'</span>;</span><br><span class="line">const astA = parse(a, &#123; sourceFilename: <span class="string">'a.js'</span> &#125;);</span><br><span class="line">const astB = parse(b, &#123; sourceFilename: <span class="string">'b.js'</span> &#125;);</span><br><span class="line">const ast = &#123;</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">'Program'</span>,</span><br><span class="line">  body: [].concat(astA.program.body, astB.program.body)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const &#123; code, map &#125; = generate(ast, &#123; sourceMaps: <span class="literal">true</span> &#125;, &#123;</span><br><span class="line">  <span class="string">'a.js'</span>: a,</span><br><span class="line">  <span class="string">'b.js'</span>: b</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>@babel/code-frame</p>
+</blockquote>
+<p>标记指定开始位置和结束位置内的代码，<a href="https://babeljs.io/docs/en/babel-code-frame" target="_blank" rel="noopener">参考</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import &#123; codeFrameColumns &#125; from <span class="string">'@babel/code-frame'</span>;</span><br><span class="line"></span><br><span class="line">const rawLines = `class Foo &#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span></span>() &#123;</span><br><span class="line">    console.log(<span class="string">"hello"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;`;</span><br><span class="line">const location = &#123; start: &#123; line: 2, column: 17 &#125;, end: &#123; line: 4, column: 3 &#125; &#125;;</span><br><span class="line"></span><br><span class="line">const result = codeFrameColumns(rawLines, location, &#123; /* options */ &#125;);</span><br><span class="line"></span><br><span class="line">console.log(result);</span><br></pre></td></tr></table></figure>
+
+<p>打印如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  1 | class Foo &#123;</span><br><span class="line">&gt; 2 |   <span class="function"><span class="title">constructor</span></span>() &#123;</span><br><span class="line">    |                 ^</span><br><span class="line">&gt; 3 |     console.log(<span class="string">"hello"</span>);</span><br><span class="line">    | ^^^^^^^^^^^^^^^^^^^^^^^^^</span><br><span class="line">&gt; 4 |   &#125;</span><br><span class="line">    | ^^^</span><br><span class="line">  5 | &#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>@babel/template</p>
+</blockquote>
+<p>自定义生成模板</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">npm install --save-dev @babel/template</span><br><span class="line"></span><br><span class="line">import template from <span class="string">"@babel/template"</span>;</span><br><span class="line">import generate from <span class="string">"@babel/generator"</span>;</span><br><span class="line">import * as t from <span class="string">"@babel/types"</span>;</span><br><span class="line"></span><br><span class="line">const buildRequire = template(`</span><br><span class="line">  var %%importName%% = require(%%<span class="built_in">source</span>%%);</span><br><span class="line">`);</span><br><span class="line">const ast = buildRequire(&#123;</span><br><span class="line">  importName: t.identifier(<span class="string">"myModule"</span>),</span><br><span class="line">  <span class="built_in">source</span>: t.stringLiteral(<span class="string">"my-module"</span>),</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">const buildRequire = template(`</span><br><span class="line">  var IMPORT_NAME = require(SOURCE);</span><br><span class="line">`);</span><br><span class="line"></span><br><span class="line">const ast = buildRequire(&#123;</span><br><span class="line">  IMPORT_NAME: t.identifier(<span class="string">"myModule"</span>),</span><br><span class="line">  SOURCE: t.stringLiteral(<span class="string">"my-module"</span>),</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.log(generate(ast).code);</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line">var myModule = require(<span class="string">"my-module"</span>);</span><br><span class="line"></span><br><span class="line">const ast = template.ast(`</span><br><span class="line">  var myModule = require(<span class="string">"my-module"</span>);</span><br><span class="line">`);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>@babel/traverse</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">和 babel-parser 一起工作，遍历 AST</span><br><span class="line"></span><br><span class="line">import * as parser from <span class="string">"@babel/parser"</span>;</span><br><span class="line">import traverse from <span class="string">"@babel/traverse"</span>;</span><br><span class="line"></span><br><span class="line">const code = `<span class="keyword">function</span> square(n) &#123;</span><br><span class="line">  <span class="built_in">return</span> n * n;</span><br><span class="line">&#125;`;</span><br><span class="line"></span><br><span class="line">const ast = parser.parse(code);</span><br><span class="line"></span><br><span class="line">traverse(ast, &#123;</span><br><span class="line">  enter(path) &#123;</span><br><span class="line">    <span class="keyword">if</span> (path.isIdentifier(&#123; name: <span class="string">"n"</span> &#125;)) &#123;</span><br><span class="line">      path.node.name = <span class="string">"x"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/07/23/optimize/">optimize</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-07-23</time><div class="content"></div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/07/23/nginx/">nginx常用配置</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-07-23</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/">服务器配置</a></span><div class="content"><h2 id="什么是-Nginx"><a href="#什么是-Nginx" class="headerlink" title="什么是 Nginx"></a>什么是 Nginx</h2><p>Nginx (engine x) 是一个高性能的 HTTP 和反向代理 web 服务器，同时也提供了 IMAP/POP3/SMTP 服务。</p>
 <blockquote>
 <p>优点</p>
 </blockquote>
@@ -386,157 +151,191 @@
 <li>跨平台，安装都很简单</li>
 <li>反向代理的配置</li>
 <li>配置负载均衡方便</li>
-<li>处理静态文件，索引文件以及自动索引;打开文件描述...
-          
-          </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2020/07/23/nginx/">Read More</a>
-        </div>
-      </div>
-    </article>
+<li>处理静态文件，索引文件以及自动索引;打开文件描述符缓冲。</li>
+<li>轻松配置 SSL， gzip，限流，授权</li>
+</ul>
+<blockquote>
+<p>Nginx 常用命令</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">./nginx -v 查看 nginx 版本</span><br><span class="line">./nginx -V 查看 nginx 的编译版本及配置的参数</span><br><span class="line">./nginx -t 主要验证 nginx.conf 配置文件是否有问题</span><br><span class="line">./nginx -c /usr/<span class="built_in">local</span>/nginx/conf/nginx.conf 根据配置文件的位置启动 nginx</span><br><span class="line">./nginx -s reload 重新加载配置文件</span><br><span class="line">./nginx -s stop 强制停止</span><br><span class="line">./nginx -s quit 优雅</span><br></pre></td></tr></table></figure>
 
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2020/07/23/https/">https介绍</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      Posted on:&nbsp;2020-07-23
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      Edited on:&nbsp;2020-07-23
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      In:&nbsp;
-    </span>
-    
-  </div>
-</div>   
-    
+<br>
 
+<blockquote>
+<p>Nginx 常用配置</p>
+</blockquote>
+<h5 id="一个站点配置多个域名"><a href="#一个站点配置多个域名" class="headerlink" title="一个站点配置多个域名"></a>一个站点配置多个域名</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  server_name aaa.cn bbb.cn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h5 id="一个服务配置多个站点"><a href="#一个服务配置多个站点" class="headerlink" title="一个服务配置多个站点"></a>一个服务配置多个站点</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  server_name aaa.cn;</span><br><span class="line">  location / &#123;</span><br><span class="line">    root /home/project/pa;</span><br><span class="line">    index index.html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  server_name bbb.cn ccc.cn;</span><br><span class="line">  location / &#123;</span><br><span class="line">    root /home/project/pb;</span><br><span class="line">    index index.html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  server_name ddd.cn;</span><br><span class="line">  location / &#123;</span><br><span class="line">    root /home/project/pc;</span><br><span class="line">    index index.html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
-      
-  <div class="tag-line-space"></div>
+<h5 id="静态资源缓存"><a href="#静态资源缓存" class="headerlink" title="静态资源缓存"></a>静态资源缓存</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">location ~ .*\.(?:js|css|jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm)$ &#123;</span><br><span class="line">  expires 7d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(?:htm|html)$ &#123;</span><br><span class="line">  add_header Cache-Control <span class="string">"private, no-store, no-cache, must-revalidate, proxy-revalidate"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h2 id="Https-原理解析"><a href="#Https-原理解析" class="headerlink" title="Https 原理解析"></a>Https 原理解析</h2><blockquote>
+<h5 id="Gzip-配置"><a href="#Gzip-配置" class="headerlink" title="Gzip 配置"></a>Gzip 配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">  gzip on;</span><br><span class="line"></span><br><span class="line">  gzip_disable <span class="string">"MSIE [1-6]\.(?!.*SV1)"</span>;  <span class="comment">#禁用条件</span></span><br><span class="line"></span><br><span class="line">  gzip_min_length 10k; <span class="comment">#设置允许压缩的页面最小字节数; 这里表示如果文件小于10个字节，就不用压缩，因为没有意义，本来就很小.</span></span><br><span class="line"></span><br><span class="line">  gzip_comp_level 6; <span class="comment">#设置压缩比率，最小为1，处理速度快，传输速度慢；9为最大压缩比，处理速度慢，传输速度快; 这里表示压缩级别，可以是0到9中的任一个，级别越高，压缩就越小，节省了带宽资源，但同时也消耗CPU资源，所以一般折中为6</span></span><br><span class="line"></span><br><span class="line">  gzip_buffers 16 8k; <span class="comment">#设置压缩缓冲区大小，此处设置为16个8K内存作为压缩结果流缓存</span></span><br><span class="line"></span><br><span class="line">  gzip_http_version 1.1; <span class="comment">#压缩版本</span></span><br><span class="line"></span><br><span class="line">  gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript; <span class="comment">#制定压缩的类型,线上配置时尽可能配置多的压缩类型!</span></span><br><span class="line"></span><br><span class="line">  gzip_vary on; <span class="comment">#选择支持vary header；改选项可以让前端的缓存服务器缓存经过gzip压缩的页面; 这个可以不写，表示在传送数据时，给客户端说明我使用了gzip压缩</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="负载均衡-配置"><a href="#负载均衡-配置" class="headerlink" title="负载均衡 配置"></a>负载均衡 配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr &#123;</span><br><span class="line">  <span class="comment">#weigth参数表示权值，权值越高被分配到的几率越大</span></span><br><span class="line">  server 0.0.0.0:88 weight=5;</span><br><span class="line">  server 0.0.0.1:80 weight=1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="完整例子"><a href="#完整例子" class="headerlink" title="完整例子"></a>完整例子</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">  include       mime.types;</span><br><span class="line">  default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">  <span class="comment">#log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</span></span><br><span class="line">  <span class="comment">#                  '$status $body_bytes_sent "$http_referer" '</span></span><br><span class="line">  <span class="comment">#                  '"$http_user_agent" "$http_x_forwarded_for"';</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#access_log  logs/access.log  main;</span></span><br><span class="line"></span><br><span class="line">  sendfile        on;</span><br><span class="line">  <span class="comment">#tcp_nopush     on;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#keepalive_timeout  0;</span></span><br><span class="line">  keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">  <span class="comment">#gzip  on;</span></span><br><span class="line"></span><br><span class="line">  upstream mysvr &#123;</span><br><span class="line">    server 0.0.0.0:88 weight=5;</span><br><span class="line">    server 0.0.0.1:80 weight=1;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    gzip on;</span><br><span class="line">    gzip_buffers 16 8k;</span><br><span class="line">    gzip_types text/plain text/css application/json;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#默认简单配置</span></span><br><span class="line">    location / &#123;</span><br><span class="line">      root /var/html;</span><br><span class="line">      index index.html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#负载均衡</span></span><br><span class="line">    location /html &#123;</span><br><span class="line">      proxy_pass http://mysvr;</span><br><span class="line">      root /var/demo/html;</span><br><span class="line">      index index.html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#支持websocket</span></span><br><span class="line">    location /socket &#123;</span><br><span class="line">        root   html;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">        proxy_pass http://webscoket;</span><br><span class="line">        proxy_http_version 1.1;</span><br><span class="line">        proxy_connect_timeout 4s;                <span class="comment">#配置点1</span></span><br><span class="line">        proxy_read_timeout 60s;                  <span class="comment">#配置点2，如果没效，可以考虑这个时间配置长一点</span></span><br><span class="line">        proxy_send_timeout 12s;                  <span class="comment">#配置点3</span></span><br><span class="line">        proxy_set_header Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line">        proxy_set_header Connection <span class="string">"Upgrade"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    location ~ .*\.(?:js|css|jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm)$ &#123;</span><br><span class="line">      expires 7d;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location /rest &#123;</span><br><span class="line">      proxy_pass http://127.0.0.1</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Nginx-虚拟目录-alias-和-root-目录"><a href="#Nginx-虚拟目录-alias-和-root-目录" class="headerlink" title="Nginx 虚拟目录 alias 和 root 目录"></a>Nginx 虚拟目录 alias 和 root 目录</h5><ul>
+<li>alias 指定的目录是准确的，即 location 匹配访问的 path 目录下的文件直接是在 alias 目录下查找的；</li>
+<li>root 指定的目录是 location 匹配访问的 path 目录的上一级目录,这个 path 目录一定要是真实存在 root 指定目录下的；</li>
+<li>使用 alias 标签的目录块中不能使用 rewrite 的 break（具体原因不明）；另外，alias 指定的目录后面必须要加上”/“符号！！</li>
+<li>alias 虚拟目录配置中，location 匹配的 path 目录如果后面不带”/“，那么访问的 url 地址中这个 path 目录后面加不加”/“不影响访问，访问时它会自动加上”/“；<br>但是如果 location 匹配的 path 目录后面加上”/“，那么访问的 url 地址中这个 path 目录必须要加上”/“，访问时它不会自动加上”/“。如果不加上”/“，访问就会失败！</li>
+<li>root 目录配置中，location 匹配的 path 目录后面带不带”/“，都不会影响访问。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#例一</span></span><br><span class="line">location /demo/ &#123;</span><br><span class="line">  <span class="built_in">alias</span> /home/www/demo/; <span class="comment">#访问http://xxx/demo/a.html实际指定的是/home/www/demo/a.html。注意：alias指定的目录后面必须要加上"/"，即/home/www/huan/不能改成/home/www/huan</span></span><br><span class="line">&#125;</span><br><span class="line">location /demo/ &#123;</span><br><span class="line">  root /home/www/; <span class="comment">#效果和alias一样</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#例二</span></span><br><span class="line">location /web/ &#123;</span><br><span class="line">  <span class="built_in">alias</span> /home/www/html/; <span class="comment">#访问http://x/web/ 的时候就会去/home/www/html/下寻找访问资源。root没法改，需要做软连接</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  server_name www.xxx.com;</span><br><span class="line">  index index.html index.php index.htm;</span><br><span class="line">  <span class="comment">#access_log /usr/local/nginx/logs/image.log;</span></span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">    root /var/www/html;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  location /haha &#123;  <span class="comment">#匹配的path目录haha不需要真实存在alias指定的目录中</span></span><br><span class="line">    <span class="built_in">alias</span> /var/haha/html/; <span class="comment">#注意结尾/</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  location /wang &#123;    <span class="comment">#匹配的path目录wang一定要真实存在root指定的目录中（就/var/www/html下一定要有wang目录存在）</span></span><br><span class="line">    root /var/www/html;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Nginx-rewrite-配置"><a href="#Nginx-rewrite-配置" class="headerlink" title="Nginx rewrite 配置"></a>Nginx rewrite 配置</h5><p>rewrite 常用正则表达式</p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>. :匹配除换行符以外的任意字符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+<td>? :重复 0 次或 1 次</td>
+</tr>
+<tr>
+<td>3</td>
+<td>+ :重复 1 次或更多次</td>
+</tr>
+<tr>
+<td>4</td>
+<td>* :重复 0 次或更多次</td>
+</tr>
+<tr>
+<td>5</td>
+<td>\d :匹配数字</td>
+</tr>
+<tr>
+<td>6</td>
+<td>^ :匹配字符串的开始字符</td>
+</tr>
+<tr>
+<td>7</td>
+<td>$ :匹配字符串的结束字符</td>
+</tr>
+<tr>
+<td>8</td>
+<td>{n} :重复 n 次</td>
+</tr>
+<tr>
+<td>9</td>
+<td>{n,} :重复 n 次或更多次</td>
+</tr>
+<tr>
+<td>10</td>
+<td>[c] :匹配单个字符 c</td>
+</tr>
+<tr>
+<td>11</td>
+<td>[a-z] :匹配 a-z 小写字母的任意一个</td>
+</tr>
+</tbody></table>
+<p>在 rewrite 中，如果使用小括号()，那么在小括号之间匹配的内容，可以在后面通过$1来引用，$2 表示的是前面第二个()里的内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#例子</span></span><br><span class="line">location /download/ &#123;</span><br><span class="line">  rewrite ^(/download/.*)/media/(.*)..*$ <span class="variable">$1</span>/mp3/<span class="variable">$2</span>.mp3 <span class="built_in">break</span>;</span><br><span class="line">  rewrite ^(/download/.*)/audio/(.*)..*$ <span class="variable">$1</span>/mp3/<span class="variable">$2</span>.ra <span class="built_in">break</span>;</span><br><span class="line">  <span class="built_in">return</span> 403;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+##### 简单介绍下 Nginx 处理请求的几个主要阶段
+
+<p>nginx 处理请求一共分为 11 个阶段</p>
+<ul>
+<li><p>postread: #realip 模块，读取头部信息</p>
+</li>
+<li><p>server_rewrite: #一般没有第三方模块会处理这个阶段。</p>
+</li>
+<li><p>find_config: #做 location 的匹配，暂时没有模块会用到。</p>
+</li>
+<li><p>rewrite: #对 URL 做一些处理。</p>
+</li>
+<li><p>post_rewrite: #处于 REWRITE 之后，也是暂时没有模块会在这个阶段出现</p>
+</li>
+<li><p>preaccess: #access 之前的工作，例如并发连接和 QPS 需要进行限制, limit_conn 和 limit_req 就是在这里</p>
+</li>
+<li><p>access: #认证就在这里，auth_basic 用户名和密码认证, access 用户访问 ip, auth_request 第三方认证</p>
+</li>
+<li><p>postAccess: #access 之后做的一些事情</p>
+</li>
+<li><p>preContent: #try_files 模块就在这个阶段</p>
+</li>
+<li><p>content: #index, autoindex, concat 模块</p>
+</li>
+<li><p>log: #记录日志 access_log 模块</p>
+</li>
+</ul>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/07/23/https/">https介绍</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-07-23</time><div class="content"><h2 id="Https-原理解析"><a href="#Https-原理解析" class="headerlink" title="Https 原理解析"></a>Https 原理解析</h2><blockquote>
 <p>什么是 Https</p>
 </blockquote>
-<p>Https 是以安全的 Http 为通道， 在 Http 的基础上通过传输加密和身份认证保证了传输过程的安全性。为了保证这些隐私数据能加密传输，于是设计了 SSL（Secure Sockets Layer），随后 SSL 升级成 TLS（Transport Layer Security），不过现在仍然...
-          
-          </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2020/07/23/https/">Read More</a>
-        </div>
-      </div>
-    </article>
+<p>Https 是以安全的 Http 为通道， 在 Http 的基础上通过传输加密和身份认证保证了传输过程的安全性。为了保证这些隐私数据能加密传输，于是设计了 SSL（Secure Sockets Layer），随后 SSL 升级成 TLS（Transport Layer Security），不过现在仍然使用 SSL 来充当 Https 的代名词。</p>
+<br>
 
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2020/07/23/hello-world/">Hexo命令介绍</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      Posted on:&nbsp;2020-07-23
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      Edited on:&nbsp;2020-07-23
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      In:&nbsp;
-    </span>
-    
-  </div>
-</div>   
-    
+<blockquote>
+<p>Https 验证过程</p>
+</blockquote>
+<p>Https 在请求数据之前，会有几次握手，主要是用来传输证书和验证证书，以及生成加密的 Key，如下图所示</p>
+<img src="/2020/07/23/https/1.png" class title="This is an test image">
 
+<ul>
+<li><p>具体流程</p>
+<ul>
+<li><p>Client 向 Server 发起请求，默认是 443 端口，该请求会携带一些自己能支持的 Cipher Suite（密钥算法套件，简称 Cipher）</p>
+</li>
+<li><p>Server 收到请求，会判断是否支持这些 Cipher，不支持则连接断开，反之则会从中选出一种加密算法和 HASH 算法，以证书的形式返回给 Client 证书中还包含了 公钥 颁证机构 网址 失效日期等等。此证书就是公钥证书。</p>
+</li>
+<li><p>Client 收到公钥证书，会进行验证。验证内容包括：比如是否在有效期内，证书的用途是不是匹配 Client 请求的站点，是不是在 CRL 吊销列表里面，它的上一级证书是否有效，这是一个递归的过程，直到验证到根证书（操作系统内置的 Root 证书或者 Client 内置的 Root 证书）。如果验证通过则继续，不通过则显示警告信息。</p>
+</li>
+<li><p>Client 生成随机秘钥，使用伪随机数生成器生成加密所使用的会话密钥，然后用用公钥证书对它进行加密，然后发给 Server</p>
+</li>
+<li><p>Server 端使用自己的私钥进行解密，得到会话秘钥。至此，Client 和 Server 双方都持有了相同的会话密钥。</p>
+</li>
+<li><p>剩下的就是，Server 使用会话密钥加密“明文内容 A”，发送给 Client。Client 使用会话密钥解密响应的密文，得到“明文内容 A”。<br>因为这串密钥只有 Client 和 Server 知道，所以即使中间请求被拦截也是没法解密数据的，以此保证了通信的安全</p>
+</li>
+</ul>
+</li>
+</ul>
+<br>
 
+<blockquote>
+<p>Https 中间人攻击</p>
+</blockquote>
+<ul>
+<li><p>Server 向 Client 发送公钥。</p>
+</li>
+<li><p>攻击者截获公钥，保留在自己手上。</p>
+</li>
+<li><p>然后攻击者自己生成一个【伪造的】公钥，发给 Client。</p>
+</li>
+<li><p>Client 收到伪造的公钥后，生成加密 hash 值发给 Server 。</p>
+</li>
+<li><p>攻击者获得加密 hash 值，用自己的私钥解密获得真秘钥。</p>
+</li>
+<li><p>同时生成假的加密 hash 值，发给 Server 。</p>
+</li>
+<li><p>Server 用私钥解密获得假秘钥。</p>
+</li>
+<li><p>这里就需要一个强大的公证人，就是 CA，操作系统会做 CA 证书的判断。</p>
+</li>
+</ul>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/07/23/hello-world/">Hexo命令介绍</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-07-23</time><div class="content"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
-      
-      
-  <div class="tag-line-space"></div>
+<!-- More info: [Writing](https://hexo.io/docs/writing.html) -->
 
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https:...
-          
-          </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2020/07/23/hello-world/">Read More</a>
-        </div>
-      </div>
-    </article>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line">$ hexo server -p 5000</span><br><span class="line">$ hexo server -i IP地址</span><br></pre></td></tr></table></figure>
 
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Clean-cache"><a href="#Clean-cache" class="headerlink" title="Clean cache"></a>Clean cache</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
 
-  <nav style="text-align: center;">
-    <div class="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/"><i class="iconfont icon-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </div>
-  </nav>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-  </main>
-  <footer
-  id="footer"
-  class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme"
->
-  <div class="mdui-container">
-    <div class="mdui-row">
-      
-      <span>
-        &copy; 2018 - 2020  Yu Kai
-      </span>
-    </div>
-    <div class="mdui-row">
-      
-      <span
-        >Theme:
-        <a
-          href="https://github.com/kb1000fx/hexo-theme-meadow"
-          rel="noopener"
-          target="_blank"
-          >Meadow</a
-        ></span
-      >
-      
-    </div>
-    <div class="mdui-row">
-      
-    </div>
-  </div>
-</footer>
-
-  
-  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
-  
-  
-
-
-
-
-
-
-
-<script src="/js/mdui.min.js"></script>
-<script src="/js/meadow.js"></script>
-
-</body>
-</html >
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+</div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-chevron-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2020 By Yu Kai</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
